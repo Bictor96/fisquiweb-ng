@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "fisquiweb"
+    }
+  },
+  "defaultProject": "fisquiweb",
+  "cli": {
+    "analytics": false
+  }
 }
