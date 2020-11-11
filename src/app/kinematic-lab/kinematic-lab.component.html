@@ -1,1 +1,20 @@
-<p>kinematic-lab works!</p>
+
+<mat-card>
+  <div class="kinematicAnimation" #Animation>
+    <!-- Aqui se inserta la animacion en el codigo -->
+  </div>
+</mat-card>
+
+<div class="kinematic-ui">
+  <kinematic-form 
+    class="kinematic-ui-element"
+    (initEvent)="onInitEvent($event)"
+    (stopEvent)="onStopEvent()"
+    (resetEvent)="onResetEvent()"></kinematic-form>
+
+  <kinematic-output class="kinematicOutput" #kinematicOuput
+    class="kinematic-ui-element"
+    [time]="actualTime"
+    [data]="actualData"
+    ></kinematic-output>
+</div>

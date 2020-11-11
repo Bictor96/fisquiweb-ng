@@ -1,0 +1,42 @@
+<div class="kinematic-output">
+  <mat-card>
+    <mat-grid-list cols="4">
+      <mat-grid-tile>Tiempo: {{time | number}}</mat-grid-tile>
+      <mat-grid-tile>Posición: {{data.position | number}}</mat-grid-tile>
+      <mat-grid-tile>Velocidad: {{data.velocity | number}}</mat-grid-tile>
+      <mat-grid-tile>Aceleración: {{data.acceleration | number}} </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card>
+
+  <div class="example-container mat-elevation-z8">
+    <table mat-table [dataSource]="tableData">
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="time">
+        <th mat-header-cell *matHeaderCellDef> Tiempo. </th>
+        <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> Posicion </th>
+        <td mat-cell *matCellDef="let element"> {{element.kinematicData.position}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="velocity">
+        <th mat-header-cell *matHeaderCellDef> Velocidad </th>
+        <td mat-cell *matCellDef="let element"> {{element.kinematicData.velocity}} </td>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="acceleration">
+        <th mat-header-cell *matHeaderCellDef> Aceleración </th>
+        <td mat-cell *matCellDef="let element"> {{element.kinematicData.acceleration}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

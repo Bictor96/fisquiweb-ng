@@ -1,5 +1,8 @@
+import { throwToolbarMixedModesError } from '@angular/material/toolbar';
 import * as PIXI from 'pixi.js'
 import { PixiUtils } from '../utils/pixi-utils';
+import {LabAnimation} from '../interfaces/lab-animation';
+
 
 export class KinematicAnimation {
   private app: PIXI.Application;
@@ -8,18 +11,20 @@ export class KinematicAnimation {
   private line: PIXI.TilingSprite;
 
   public velocity : number;
+  private ticker;
 
-  constructor(app: PIXI.Application) { 
-    this.app = app;
+  constructor() { 
     this.velocity = 1;
+  }
+
+  setApp (app : PIXI.Application) : void {
+    this.app = app;
   }
 
   init() {
     console.log("Initing Animation");
     this.setupLine();
     this.setupBall();
-
-    this.animate();
   }
 
   setupBall() : void {
@@ -33,15 +38,45 @@ export class KinematicAnimation {
     this.line = PixiUtils.setupTillingSprite(this.app, 'assets/line.png', scale, position);
   }
 
+  setVelocity(velocity : number) {
+    this.velocity = velocity/10;
+  }
+
   animate(): void {
-    this.app.ticker.add((delta) => {
+    console.warn(this.app.ticker.started)
+    if (this.ticker == null) {
+      this.createTicker();
+      if (!this.app.ticker.started) 
+        this.app.ticker.start();
+    } else {
+      this.app.ticker.start();
+    }
+  }
+
+  stop() : void {
+    this.app.ticker.stop();
+  }
+
+  reset() : void {
+    this.ball.x = 0;
+
+    setTimeout(() => {
+      this.stop();
+      console.warn("Reseting animation");
+    }, 50);
+  }
+
+  private createTicker() : void {
+    this.ticker = this.app.ticker.add((delta) => {
       if (this.isBallCollidingWithScreen()) {
         this.moveLine(this.velocity, delta);
       } else {
         this.moveBall(this.velocity, delta);
       }
-    });
+    }, this);
   }
+
+
 
   private moveLine(velocity: number, delta: number) {
     this.line.tilePosition.x -= velocity * delta;

@@ -1,0 +1,14 @@
+.kinematic-output mat-card {
+  margin-top: 1em;
+  min-width: 80px;
+  width: 500px;
+}
+
+.example-container {
+  height: 400px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}

@@ -16,6 +16,6 @@
       "es2018",
       "dom"
     ],
-    "types": ["pixi.js"]
+    "types": ["pixi.js", "node"]
   }
 }
