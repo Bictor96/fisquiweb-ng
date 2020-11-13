@@ -1,13 +1,11 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import * as PIXI from 'pixi.js';
-import {NgZone, Renderer2} from '@angular/core';
-import { KinematicAnimation } from './kinematic-animation';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { NgZone, Renderer2 } from '@angular/core';
+import { KinematicAnimation } from '../animations/kinematic-animation';
 import { KinematicData } from '../classes/kinematic-data';
 import { TimeLoopService } from '../time-loop.service';
 import { KinematicOutputData } from '../classes/kinematic-output-data';
 import { KinematicOutputComponent } from '../kinematic-output/kinematic-output.component';
 import { BaseLabComponent } from '../base-component/base-lab';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'kinematic-lab',
@@ -18,9 +16,6 @@ export class KinematicLabComponent extends BaseLabComponent {
   private animation : KinematicAnimation;
   public actualTime : number;
   public actualData : KinematicData;
-
-  @Input()
-  public devicePixelRatio = window.devicePixelRatio || 1;
 
   @ViewChild("kinematicOuput") private kinematicOutput : KinematicOutputComponent;
   @ViewChild("Animation") animationDiv: ElementRef;
@@ -33,13 +28,13 @@ export class KinematicLabComponent extends BaseLabComponent {
       this.animation = new KinematicAnimation();
       this.actualData = new KinematicData(1,1,1);
       this.actualTime = 0;
-      this.timeLoop.setLoop(30000, 50);
+      this.timeLoop.setLoop(50, 30000);
   }
 
   ngAfterViewInit() {
     this.getRenderer().appendChild(this.animationDiv.nativeElement, this.getApp().view);
     this.animation.setApp(this.getApp());
-    this.animation.init();
+    this.animation.setup();
   }
 
   onInitEvent(data: KinematicData) {

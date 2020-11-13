@@ -22,7 +22,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider'; 
 import {MatTableModule} from '@angular/material/table';
 import { KinematicOutputComponent } from './kinematic-output/kinematic-output.component';
-import { DynamicLabComponent } from './dynamic-lab/dynamic-lab.component'; 
+import { DynamicLabComponent } from './dynamic-lab/dynamic-lab.component';
+import { DynamicInputComponent } from './dynamic-lab/dynamic-input/dynamic-input.component';
+import { DynamicOutputComponent } from './dynamic-lab/dynamic-output/dynamic-output.component'; 
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { DynamicLabComponent } from './dynamic-lab/dynamic-lab.component';
     KinematicFormComponent,
     KinematicOutputComponent,
     DynamicLabComponent,
+    DynamicInputComponent,
+    DynamicOutputComponent,
   ],
   imports: [
     BrowserModule,

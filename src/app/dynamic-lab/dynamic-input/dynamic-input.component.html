@@ -1,0 +1,37 @@
+<mat-card class="dynamic-card">
+    <mat-card-title> Datos: </mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="dynamicForm" (ngSubmbit)="onSubmitClick()">
+        
+        <mat-form-field class="dynamic-full-width">
+          <mat-label> Masa: </mat-label>
+          <input formControlName="mass" matInput type="number" placeholder="En kg" value="0">
+        </mat-form-field>
+
+        <mat-form-field class="dynamic-full-width">
+            <mat-label> Posición: </mat-label>
+            <input formControlName="position" matInput type="number" placeholder="En kg" value="0">
+        </mat-form-field>
+
+        <mat-form-field class="dynamic-full-width">
+            <mat-label> Fuerza +: </mat-label>
+            <input formControlName="positiveForce" matInput type="number" placeholder="En kg" value="0">
+        </mat-form-field>
+
+        <mat-form-field class="dynamic-full-width">
+            <mat-label> Force - : </mat-label>
+            <input formControlName="negativeForce" matInput type="number" placeholder="En kg" value="0">
+        </mat-form-field>
+
+        <mat-form-field class="dynamic-full-width">
+            <mat-label> Velocidad Inicial: </mat-label>
+            <input formControlName="initialVelocity" matInput type="number" placeholder="En kg" value="0">
+        </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="onSubmitClick()" *ngIf="!running" mat-raised-button color="primary"> Iniciar </button>
+      <button (click)="onStopClick()" *ngIf="running" mat-raised-button color="accent"> Parar </button>
+      <button (click)="onResetClick()" mat-raised-button color="accent"> Reset </button>
+    </mat-card-actions>
+  </mat-card>

@@ -1,1 +1,15 @@
-<p>dynamic-lab works!</p>
+<mat-card>
+  <div class="dynamimcAnimation" #Animation>
+    <!-- Aqui se inserta la animacion en el codigo -->
+  </div>
+</mat-card>
+
+<dynamic-input
+  (initEvent)="onInitEvent($event)"
+  (stopEvent)="onStopEvent()"
+  (resetEvent)="onResetEvent()">
+</dynamic-input>
+
+<dynamic-output>
+  
+</dynamic-output>
