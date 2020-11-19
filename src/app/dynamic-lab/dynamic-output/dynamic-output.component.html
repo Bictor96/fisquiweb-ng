@@ -1,10 +1,35 @@
 <div class="dynamic-output">
     <mat-card>
-        <mat-grid-list cols="4">
-            <mat-grid-tile> Posición: {{position | number}}</mat-grid-tile>
-            <mat-grid-tile> Velocity: {{velocity | number}}</mat-grid-tile>
-            <mat-grid-tile> Acceleration: {{acceleration | number}}</mat-grid-tile>
-            <mat-grid-tile> Fuerza Total: {{ force | number}}</mat-grid-tile>
+        <mat-grid-list cols="5">
+            <mat-grid-tile> Tiempo: {{data.time | number}}</mat-grid-tile>
+            <mat-grid-tile> Posición: {{data.position | number}}</mat-grid-tile>
+            <mat-grid-tile> Velocity: {{data.velocity | number}}</mat-grid-tile>
+            <mat-grid-tile> Acceleration: {{data.acceleration | number}}</mat-grid-tile>
+            <mat-grid-tile> Fuerza Total: {{ data.force | number}}</mat-grid-tile>
         </mat-grid-list>
     </mat-card>
+
+    <div class="example-container mat-elevation-z8">
+        <table mat-table [dataSource]="tableData">
+      
+          <!-- Position Column -->
+          <ng-container matColumnDef="time">
+            <th mat-header-cell *matHeaderCellDef> Tiempo. </th>
+            <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> Posicion </th>
+            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="velocity">
+            <th mat-header-cell *matHeaderCellDef> Velocidad </th>
+            <td mat-cell *matCellDef="let element"> {{element.velocity}} </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
 </div>

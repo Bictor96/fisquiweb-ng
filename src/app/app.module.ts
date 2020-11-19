@@ -24,7 +24,9 @@ import {MatTableModule} from '@angular/material/table';
 import { KinematicOutputComponent } from './kinematic-output/kinematic-output.component';
 import { DynamicLabComponent } from './dynamic-lab/dynamic-lab.component';
 import { DynamicInputComponent } from './dynamic-lab/dynamic-input/dynamic-input.component';
-import { DynamicOutputComponent } from './dynamic-lab/dynamic-output/dynamic-output.component'; 
+import { DynamicOutputComponent } from './dynamic-lab/dynamic-output/dynamic-output.component';
+import { FrictionLabComponent } from './friction-lab/friction-lab.component';
+import { FrictionInputComponent } from './friction-lab/friction-input/friction-input.component'; 
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { DynamicOutputComponent } from './dynamic-lab/dynamic-output/dynamic-out
     DynamicLabComponent,
     DynamicInputComponent,
     DynamicOutputComponent,
+    FrictionLabComponent,
+    FrictionInputComponent,
   ],
   imports: [
     BrowserModule,

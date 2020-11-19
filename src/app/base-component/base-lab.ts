@@ -39,4 +39,9 @@ export class BaseLabComponent implements OnInit, AfterViewInit {
   getRenderer() : Renderer2 {
     return this.renderer;
   }
+
+  adjustCanvasSize(width : number, height : number) {
+    this.app.view.width = width;
+    this.app.view.height = height;
+  }
 }

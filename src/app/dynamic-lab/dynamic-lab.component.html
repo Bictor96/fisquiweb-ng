@@ -1,15 +1,21 @@
-<mat-card>
-  <div class="dynamimcAnimation" #Animation>
-    <!-- Aqui se inserta la animacion en el codigo -->
-  </div>
-</mat-card>
-
-<dynamic-input
-  (initEvent)="onInitEvent($event)"
-  (stopEvent)="onStopEvent()"
-  (resetEvent)="onResetEvent()">
-</dynamic-input>
-
-<dynamic-output>
+<div class="dynamic-ui">
+  <mat-card>
+    <div class="dynamimcAnimation" #Animation>
+      <!-- Aqui se inserta la animacion en el codigo -->
+    </div>
+  </mat-card>
   
-</dynamic-output>
+  <dynamic-input
+    class="dynamic-ui-element"
+    (initEvent)="onInitEvent($event)"
+    (stopEvent)="onStopEvent()"
+    (resetEvent)="onResetEvent()"
+    (updateForceEvent)="onUpdateForce($event)">
+  </dynamic-input>
+  
+  <dynamic-output
+    class="dynamic-ui-element"
+    #DynamicOutput
+    [data]="actualData">
+  </dynamic-output>
+</div>

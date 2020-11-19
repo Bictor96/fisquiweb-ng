@@ -6,7 +6,6 @@ import { BaseAnimation } from './base-animation';
 
 
 export class KinematicAnimation extends BaseAnimation {
-  private ticker : PIXI.Ticker;
   private ball : PIXI.Sprite;
   private line: PIXI.TilingSprite;
   public velocity : number;
@@ -40,12 +39,12 @@ export class KinematicAnimation extends BaseAnimation {
   animate(): void {
     let app = this.getApp()
     console.warn(app.ticker.started)
-    if (this.ticker == null) {
+    if (this.hasTicker()) {
+      this.start();
+    } else {
       this.createTicker();
       if (!app.ticker.started) 
         this.start()
-    } else {
-        this.start();
     }
   }
 
@@ -59,13 +58,13 @@ export class KinematicAnimation extends BaseAnimation {
   }
 
   private createTicker() : void {
-    this.ticker = this.getApp().ticker.add((delta) => {
+    this.setTicker(this.getApp().ticker.add((delta) => {
       if (this.isBallCollidingWithScreen()) {
-        this.moveLine(this.velocity, delta);
+          this.moveLine(this.velocity, delta);
       } else {
-        this.moveBall(this.velocity, delta);
+          this.moveBall(this.velocity, delta);
       }
-    }, this);
+    }));
   }
 
   private moveLine(velocity: number, delta: number) {
