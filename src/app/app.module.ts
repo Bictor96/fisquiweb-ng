@@ -9,6 +9,7 @@ import { KinematicFormComponent } from './kinematic-form/kinematic-form.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -26,7 +27,7 @@ import { DynamicLabComponent } from './dynamic-lab/dynamic-lab.component';
 import { DynamicInputComponent } from './dynamic-lab/dynamic-input/dynamic-input.component';
 import { DynamicOutputComponent } from './dynamic-lab/dynamic-output/dynamic-output.component';
 import { FrictionLabComponent } from './friction-lab/friction-lab.component';
-import { FrictionInputComponent } from './friction-lab/friction-input/friction-input.component'; 
+import { FrictionUiComponent } from './friction-lab/friction-ui/friction-ui.component'; 
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { FrictionInputComponent } from './friction-lab/friction-input/friction-i
     DynamicInputComponent,
     DynamicOutputComponent,
     FrictionLabComponent,
-    FrictionInputComponent,
+    FrictionUiComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +58,8 @@ import { FrictionInputComponent } from './friction-lab/friction-input/friction-i
     MatListModule,
     TextFieldModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,9 @@
-<div class="frictionc-ui">
+<div class="friction-lab">
   <mat-card>
     <div class="frictionAnimation" #Animation>
       <!-- Aqui se inserta la animacion en el codigo -->
     </div>
-  </mat-card>
+  </mat-card> 
+  <friction-ui [frictionData]="frictionData" 
+    (initEvent)="onInitEvent()" ></friction-ui>
 </div>

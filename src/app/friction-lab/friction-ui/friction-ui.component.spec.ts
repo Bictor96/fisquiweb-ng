@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FrictionInputComponent } from './friction-input.component';
+import { FrictionUiComponent } from './friction-ui.component';
 
-describe('FrictionInputComponent', () => {
-  let component: FrictionInputComponent;
-  let fixture: ComponentFixture<FrictionInputComponent>;
+describe('FrictionUiComponent', () => {
+  let component: FrictionUiComponent;
+  let fixture: ComponentFixture<FrictionUiComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FrictionInputComponent ]
+      declarations: [ FrictionUiComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FrictionInputComponent);
+    fixture = TestBed.createComponent(FrictionUiComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

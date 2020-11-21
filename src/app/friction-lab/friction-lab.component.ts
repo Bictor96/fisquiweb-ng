@@ -17,24 +17,26 @@ import { CustomSpriteClass } from '../animations/classes/custom-sprite-class';
 // TODO: SE PUEDE HACER LA GRAVEDAD VARIABLE.
 export class FrictionLabComponent extends BaseLabComponent {
   private animation : FrictionAnimation;
+  frictionData : FrictionData;
 
   @ViewChild("Animation") animationDiv: ElementRef;
 
   constructor(renderer: Renderer2,  ngZone: NgZone) 
   {
     super(renderer, ngZone);
-    this.animation = new FrictionAnimation();
+    this.frictionData = new FrictionData();
+    this.animation = new FrictionAnimation(this.frictionData);
   }
   
   ngAfterViewInit() {
     this.getRenderer().appendChild(this.animationDiv.nativeElement, this.getApp().view);
     this.animation.setApp(this.getApp());
     this.animation.setup();
-
-    this.animation.animate();
   }
 
   onInitEvent() : void {
+    console.log("Init event received");
+    this.animation.animate();
   }
 
   onStopEvent() : void {

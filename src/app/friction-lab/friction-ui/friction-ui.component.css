@@ -1,0 +1,21 @@
+.friction-ui {
+  margin: 5em;
+  width: 70%;
+}
+
+.friction-card {
+  width: 50%;
+}
+
+.friction-input {
+  display: flex;
+  justify-content: space-between;  
+}
+
+.friction-input form {
+  width: 10%;
+}
+
+.friction-input mat-form-field {
+  width: 100%;
+}

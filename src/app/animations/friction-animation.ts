@@ -8,11 +8,16 @@ export class FrictionAnimation extends BaseAnimation {
   frictionData : FrictionData;
   private calculationInterval : FrictionInterval;
 
+  SCANNER_POINT : number = 500;
+  STOP_POINT : number = 980;
+
+  constructor(frictionData : FrictionData) {
+    super();
+    this.frictionData = frictionData;
+  }
 
   setup() : void {
-    this.frictionData = new FrictionData(0.3, 0.5);
     this.frictionObject = new FrictionObject('assets/ball.png', 30, this.getApp().screen.height / 2, this.frictionData);
-
     this.addToStage(this.frictionObject);
   }
 
@@ -30,15 +35,7 @@ export class FrictionAnimation extends BaseAnimation {
   private createTicker() : void {
     this.setTicker(this.getApp().ticker.add((delta) => {
       if (this.frictionObject.isAppliedForceEnough()) {
-        
-        // Comprobar si paso el punto de parada.
-        if (!this.frictionObject.isPassXCoord(500)) {
-          this.createCalculationIntervalIfDontExist();
-        } else {
-          this.clearCalculationIntervalIfExist();
-        }
-
-        this.frictionObject.moveObject(delta);
+        this.movementAnimation(delta);
       } else {
         this.premovementAnimation()
       }
@@ -46,6 +43,19 @@ export class FrictionAnimation extends BaseAnimation {
   }
 
   private movementAnimation(delta) : void {
+    // Comprobar si paso el punto de parada.
+    if (!this.frictionObject.isPassXCoord(this.SCANNER_POINT)) {
+      this.createCalculationIntervalIfDontExist();
+      this.frictionObject.moveObject(delta);
+    } else {
+      this.clearCalculationIntervalIfExist();
+      if (this.frictionObject.isPassXCoord(this.STOP_POINT)) {
+        console.log("PASS STOP POINT");
+        this.frictionObject.stop();
+        this.stop();
+      } else 
+        this.frictionObject.moveObject(delta);
+    }
   }
 
   private createCalculationIntervalIfDontExist() : void{

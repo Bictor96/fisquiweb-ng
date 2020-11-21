@@ -11,6 +11,7 @@ export class FrictionInterval {
     let increment = 100;
     this.interval = setInterval(() => {
       console.log("Hey there");
+      object.incrementAppliedForce();
       object.setVelocityInGivenTime(time / 1000);
       time += increment
     }, increment);
