@@ -1,11 +1,8 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import {NgZone, Renderer2} from '@angular/core';
-import { Line } from '../animations/classes/line';
 import { FrictionAnimation } from '../animations/friction-animation';
 import { BaseLabComponent } from '../base-component/base-lab';
-import { FrictionObject } from '../animations/classes/friction-object';
 import { FrictionData } from '../classes/friction-data';
-import { CustomSpriteClass } from '../animations/classes/custom-sprite-class';
 
 
 @Component({

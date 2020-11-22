@@ -1,6 +1,4 @@
-import { Component, Renderer2, NgZone, AfterViewInit, OnInit, ViewChild, ElementRef} from "@angular/core";
-import { MatGridTileHeaderCssMatStyler } from '@angular/material/grid-list';
-import { LabAnimation } from '../interfaces/lab-animation';
+import { Component, Renderer2, NgZone, AfterViewInit, OnInit, ViewChild, ElementRef, Inject} from "@angular/core";
 import * as PIXI from 'pixi.js';
 
 @Component({
@@ -9,8 +7,13 @@ import * as PIXI from 'pixi.js';
 
 export class BaseLabComponent implements OnInit, AfterViewInit {
   private app : PIXI.Application;
+  private width : number;
+  private height : number;
 
-  constructor(private renderer: Renderer2, private ngZone : NgZone) {}
+  constructor(private renderer: Renderer2, private ngZone : NgZone, @Inject(Number) width: number = 1080, @Inject(Number) height = 240) {
+    this.width = width;
+    this.height = height;
+  }
 
   ngOnInit(): void {
     this.init();
@@ -18,7 +21,7 @@ export class BaseLabComponent implements OnInit, AfterViewInit {
 
   init() {
     this.ngZone.runOutsideAngular(() => {
-      this.app = new PIXI.Application({width: 1080, height: 240, backgroundColor: 0xFFFFFF, antialias: true});
+      this.app = new PIXI.Application({width: this.width, height: this.height, backgroundColor: 0xFFFFFF, antialias: true});
     });
   }
 

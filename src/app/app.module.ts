@@ -27,7 +27,8 @@ import { DynamicLabComponent } from './dynamic-lab/dynamic-lab.component';
 import { DynamicInputComponent } from './dynamic-lab/dynamic-input/dynamic-input.component';
 import { DynamicOutputComponent } from './dynamic-lab/dynamic-output/dynamic-output.component';
 import { FrictionLabComponent } from './friction-lab/friction-lab.component';
-import { FrictionUiComponent } from './friction-lab/friction-ui/friction-ui.component'; 
+import { FrictionUiComponent } from './friction-lab/friction-ui/friction-ui.component';
+import { EnergyLabComponent } from './energy-lab/energy-lab.component'; 
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { FrictionUiComponent } from './friction-lab/friction-ui/friction-ui.comp
     DynamicOutputComponent,
     FrictionLabComponent,
     FrictionUiComponent,
+    EnergyLabComponent,
   ],
   imports: [
     BrowserModule,
