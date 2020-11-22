@@ -1,3 +1,4 @@
+import { time } from 'console';
 import { FrictionData } from 'src/app/classes/friction-data';
 import { CustomSpriteClass } from './custom-sprite-class';
 import { Line } from './line';
@@ -46,6 +47,7 @@ export class FrictionObject extends CustomSpriteClass {
     console.log("Acceleration: " + this.getAcceleration());
     console.log("Applied Force: " + this.frictionData.appliedForce);
     console.log("Static Force: " + this.frictionData.getStaticForce());
+    this.frictionData.time = timeInSeconds;
     this.frictionData.velocity = (this.frictionData.velocity + this.getAcceleration() * timeInSeconds) / 10;
     console.log("Velocidad " + this.frictionData.velocity);
   }

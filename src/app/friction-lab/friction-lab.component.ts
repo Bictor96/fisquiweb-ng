@@ -14,7 +14,15 @@ import { CustomSpriteClass } from '../animations/classes/custom-sprite-class';
   styleUrls: ['./friction-lab.component.css']
 })
 
-// TODO: SE PUEDE HACER LA GRAVEDAD VARIABLE.
+/* 
+* TODO:
+* [] Centrar linea de fuerza en la bola
+* [] Estilizar linea
+* [] Cambiar bola
+* [] Cambiar fondo al cambiar friccion
+* []  Bloquear input mientras esta en ejecucion
+* [] Añadir algun efecto al incrementar masa
+*/
 export class FrictionLabComponent extends BaseLabComponent {
   private animation : FrictionAnimation;
   frictionData : FrictionData;
@@ -37,6 +45,10 @@ export class FrictionLabComponent extends BaseLabComponent {
   onInitEvent() : void {
     console.log("Init event received");
     this.animation.animate();
+
+    setInterval(() => {
+      this.frictionData;
+    }, 100);
   }
 
   onStopEvent() : void {
