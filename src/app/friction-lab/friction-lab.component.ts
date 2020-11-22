@@ -22,6 +22,8 @@ import { CustomSpriteClass } from '../animations/classes/custom-sprite-class';
 * [] Cambiar fondo al cambiar friccion
 * []  Bloquear input mientras esta en ejecucion
 * [] Añadir algun efecto al incrementar masa
+* [] Como se calcula el movimiento y la fuerza necesaria para mantenear el movimiento
+*    una vez pasado el scanner
 */
 export class FrictionLabComponent extends BaseLabComponent {
   private animation : FrictionAnimation;
