@@ -1,12 +1,23 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { EnergyData } from 'src/app/classes/energy-data';
 import { CustomSpriteClass } from './custom-sprite-class';
 
 export class EnergyObject extends CustomSpriteClass {
   private dragging = false;
   private data : any;
-  constructor(INITIAL_X = 0, INITIAL_Y = 10) {
+  private energyData: EnergyData;
+
+  private INITIAL_Y : number;
+  private TOP_Y : number;
+
+  constructor(energyData : EnergyData, INITIAL_X, INITIAL_Y, TOP_Y) {
     super('assets/ball.png', INITIAL_X, INITIAL_Y)
     this.interactive = true;
     this.buttonMode = true;
+
+    this.energyData = energyData;
+    this.INITIAL_Y = INITIAL_Y;
+    this.TOP_Y = TOP_Y;
 
     this
         .on('pointerdown', this.onDragStart)
@@ -27,13 +38,20 @@ export class EnergyObject extends CustomSpriteClass {
     this.alpha = 1;
   }
 
-  // TODO : SUSTITUIR COORDENADAS HARDCODEADAS POR INITIAL_Y y TOP_Y
   private onDragMove() {
     if (this.dragging) {
       const newPosition = this.data.getLocalPosition(this.parent);
-      if (newPosition.y > 10 && newPosition.y < 380) {
+      if (newPosition.y > this.TOP_Y && newPosition.y < this.INITIAL_Y) {
         this.y = newPosition.y;
+      } else if (newPosition.y < this.TOP_Y) {
+        console.log("SETTED TO " + this.TOP_Y)
+        this.y = this.TOP_Y
+      } else if( newPosition.y > this.INITIAL_Y) {
+        console.log("SETTED TO " + this.INITIAL_Y)
+        this.y = this.INITIAL_Y
       }
+
+      this.energyData.position = this.INITIAL_Y - this.y;
     }
   }
 

@@ -22,7 +22,6 @@ export class Line  extends Graphics {
   }
 
   draw(xLength : number, yLength : number) : void {
-    console.log("Drawing");
     this.clear();
     this.lineStyle(this.strokeWitdh, this.color);
     this.lineTo(xLength, yLength)

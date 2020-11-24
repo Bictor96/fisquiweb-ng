@@ -1,0 +1,45 @@
+<mat-card>
+  <mat-grid-list class="energy-grid" cols="3" rowHeight="50px">  
+    <mat-grid-tile
+      [colspan]="1"
+      [rowspan]="1">
+      Potencial: {{energyData.getPotentialEnergy()}}
+    </mat-grid-tile>
+  
+    <mat-grid-tile
+      [colspan]="1"
+      [rowspan]="1">
+      Cinetica:  {{energyData.getKinematicEnergy()}}
+    </mat-grid-tile>
+  
+    <mat-grid-tile
+      [colspan]="1"
+      [rowspan]="1">
+      Calor: {{energyData.getHeat()}}
+    </mat-grid-tile>
+  
+    <mat-grid-tile
+      [colspan]="3"
+      [rowspan]="1">
+      Total:  {{energyData.getTotalEnergy()}}
+    </mat-grid-tile>
+  
+    <mat-grid-tile
+      [colspan]="1"
+      [rowspan]="1">
+      Posicion: {{energyData.position}}
+    </mat-grid-tile>
+  
+    <mat-grid-tile
+      [colspan]="1"
+      [rowspan]="1">
+      AltMaxima:  {{energyData.position}}
+    </mat-grid-tile>
+  
+    <mat-grid-tile
+      [colspan]="1"
+      [rowspan]="1">
+      Velocidad:  {{energyData.getVelocity()}}
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-card>

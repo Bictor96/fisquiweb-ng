@@ -1,0 +1,33 @@
+<div class="energy-input">
+  <mat-card class="energy-card">
+    <mat-card-title>
+      Hey
+    </mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="energyForm">
+        
+        <!-- Rozamiento -->
+        <mat-form-field>
+          <mat-label> Rozamiento: </mat-label>
+          <input matInput type="number" formControlName="friction" placeholder="En kg" value="0">
+        </mat-form-field>
+
+        <!-- Masa -->
+        <mat-form-field>
+          <mat-label> Masa: </mat-label>
+          <input matInput type="number" formControlName="mass" placeholder="En kg" value="0">
+        </mat-form-field>
+
+        <!-- Velocidad Inicial -->
+        <mat-form-field>
+          <mat-label> Velocidad Inicial: </mat-label>
+          <input matInput type="number" formControlName="initialVelocity" placeholder="En kg" value="0">
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="onInitClick()"  mat-raised-button color="primary"> Iniciar </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+

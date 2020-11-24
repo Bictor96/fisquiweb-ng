@@ -1,0 +1,16 @@
+.energyAnimation {
+  text-align: center;
+}
+
+.energy-ui {
+  width: 100%;
+  display: inline-block;
+}
+
+.energy-ui energy-input {
+  width: 30%;
+}
+
+.energy-ui energy-output {
+  width: 30%;
+}
