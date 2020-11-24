@@ -23,7 +23,9 @@ export class EnergyInputComponent implements OnInit {
 
   onInitClick() : void {
     console.log("Position: " + this.energyData.position);
-    this.energyData.position = 100;
+    this.energyData.friction = this.energyForm.value["friction"];
+    this.energyData.mass = this.energyForm.value["mass"];
+    this.energyData.initialVelocity = this.energyForm.value["initialVelocity"];
   }
 
 }

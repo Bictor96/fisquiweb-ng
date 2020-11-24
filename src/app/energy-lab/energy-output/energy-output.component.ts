@@ -17,24 +17,15 @@ export interface Tile {
 
 export class EnergyOutputComponent implements OnInit {
   @Input("data") energyData : EnergyData;
-  tiles : Tile[];
 
   constructor() {}
 
   ngOnInit(): void {
-    this.tiles = [
-      {text: 'Potencial: ', value : String(this.energyData.getPotentialEnergy()), cols: 1, rows: 1, color: '#DDBDF1'},
-      {text: 'Cinetica: ', value : String(this.energyData.getKinematicEnergy()), cols: 1, rows: 1, color: '#DDBDF1'},
-      {text: 'Calor: ', value : String(this.energyData.getHeat()), cols: 1, rows: 1, color: '#DDBDF1'},
-      {text: 'Total: ', value : String(this.energyData.getTotalEnergy()), cols: 3, rows: 1, color: '#DDBDF1'},
-      {text: 'Altura: ', value : String(this.energyData.position), cols: 1, rows: 1, color: '#DDBDF1'},
-      {text: 'Altura Maxima: ', value : String(this.energyData.position), cols: 1, rows: 1, color: '#DDBDF1'},
-      {text: 'Velocidad: ', value : String(this.energyData.getVelocity()), cols: 1, rows: 1, color: '#DDBDF1'},
-    ];
-
+    /**
+     *  Por algun motivo, sin este intervalo no actualiza 
+     *  la UI al actualizar los datos.
+     * */ 
     setInterval(() => {
     }, 1000);
-
-
   }
 }

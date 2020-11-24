@@ -44,7 +44,7 @@ export class EnergyAnimation extends BaseAnimation {
 
   private createSetupTicker() {
     this.getApp().ticker.add((delta) => {
-      this.potentialLine.draw(0, -(380-this.energyObject.y));
+      this.potentialLine.draw(0, -(this.energyData.getPotentialEnergy()));
     });
   }
 }

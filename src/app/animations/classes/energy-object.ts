@@ -51,7 +51,9 @@ export class EnergyObject extends CustomSpriteClass {
         this.y = this.INITIAL_Y
       }
 
-      this.energyData.position = this.INITIAL_Y - this.y;
+      this.energyData.setPosition((this.INITIAL_Y - this.y) / 10);
+      this.energyData.setTotalEnergyToPotential();
+      this.energyData.setMaximumPositionToActual();
     }
   }
 
