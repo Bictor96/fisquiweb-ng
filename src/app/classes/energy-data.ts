@@ -26,27 +26,40 @@ export class EnergyData {
   }
 
   setTotalEnergyToPotential() : void {
-    this.totalEnergy = this.getPotentialEnergy()
+    this.totalEnergy = this.getPotentialEnergy();
   }
 
   setMaximumPositionToActual() : void {
     this.maxPosition = this.position;
   }
 
-  getKinematicEnergy() : number {
-    return 0;
-  }
-
   getHeat() : number {
-    return 0;
+    return -this.getFrictionForce() * this.getTraveledDistance();
   }
 
-  getTotalEnergy() {
-    return 0;
+  getKinematicEnergy() : number {
+    return this.totalEnergy - (-this.getHeat() + this.getPotentialEnergy());
   }
 
   getVelocity() : number {
-    return 0
+    return (Number(this.initialVelocity) + Number(Math.sqrt(2 * this.getKinematicEnergy() / Number(this.mass))));
   }
 
+  toString() : string {
+    let msg = "-> " + JSON.stringify(this);
+    msg += "\n-> TV: " + this.getTraveledDistance();
+    msg += "\n-> PN: " + this.getPotentialEnergy();
+    msg += "\n-> KN: " + this.getKinematicEnergy()
+    msg += "\n-> H: " + this.getHeat();
+    msg += "\n-> V: " + this.getVelocity();
+    return msg;
+  }
+
+  private getFrictionForce() : number {
+    return this.friction * this.mass * this.GRAVITY;
+  }
+
+  private getTraveledDistance() : number {
+    return this.maxPosition - this.position;
+  }
 }

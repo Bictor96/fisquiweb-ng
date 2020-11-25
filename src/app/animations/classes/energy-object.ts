@@ -26,6 +26,18 @@ export class EnergyObject extends CustomSpriteClass {
         .on('pointermove', this.onDragMove);
   }
 
+  isOnInitialPosition() : boolean {
+    return this.y >= this.INITIAL_Y
+  }
+
+  setOnInitialPosition() : void {
+    this.y = this.INITIAL_Y;
+  }
+
+  canMove() : boolean {
+    return this.energyData.getPotentialEnergy() > 0;
+  }
+
   private onDragStart(event) : void {
     this.dragging = true;
     this.data = event.data;

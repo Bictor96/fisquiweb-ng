@@ -26,9 +26,7 @@ export class FrictionUiComponent implements OnInit {
   }
 
   onInitClick() : void {
-    console.log("FrictionSelect: " + this.frictionSelect);
     this.frictionData.frictionCoeficient = FRICTION_VALUES[this.frictionSelect];
-    console.log("FrictionCof: " + this.frictionData.frictionCoeficient);
     this.frictionData.mass = this.massForm.value.mass;
     this.initEvent.emit();
   }

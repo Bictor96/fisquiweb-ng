@@ -19,11 +19,17 @@ export class EnergyLabComponent extends BaseLabComponent {
     super(renderer, ngZone, 720, 480); 
     this.energyData = new EnergyData(0, 0, 0, 0);
     this.animation = new EnergyAnimation(this.energyData);
-   }
+  }
 
-   ngAfterViewInit() {
+  ngAfterViewInit() {
     this.getRenderer().appendChild(this.animationDiv.nativeElement, this.getApp().view);
     this.animation.setApp(this.getApp());
     this.animation.setup();
+  }
+
+  onInitEvent() : void {
+    console.log("Init received");
+    this.animation.stopSetupTicker();
+    this.animation.startDropTicker();
   }
 }

@@ -5,7 +5,7 @@
 </mat-card>
 
 <div class="energy-ui">
-  <energy-input [data]="energyData"></energy-input>
+  <energy-input [data]="energyData" (initEvent)="onInitEvent()"></energy-input>
   <energy-output [data]="energyData"></energy-output>
 </div>
 
