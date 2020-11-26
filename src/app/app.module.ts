@@ -30,7 +30,10 @@ import { FrictionLabComponent } from './friction-lab/friction-lab.component';
 import { FrictionUiComponent } from './friction-lab/friction-ui/friction-ui.component';
 import { EnergyLabComponent } from './energy-lab/energy-lab.component';
 import { EnergyInputComponent } from './energy-lab/energy-input/energy-input.component';
-import { EnergyOutputComponent } from './energy-lab/energy-output/energy-output.component'; 
+import { EnergyOutputComponent } from './energy-lab/energy-output/energy-output.component';
+import { WaveLabComponent } from './wave-lab/wave-lab.component';
+import { WaveInputComponent } from './wave-lab/wave-input/wave-input.component';
+import { WaveToolsComponent } from './wave-lab/wave-tools/wave-tools.component'; 
 
 @NgModule({
   declarations: [
@@ -46,6 +49,9 @@ import { EnergyOutputComponent } from './energy-lab/energy-output/energy-output.
     EnergyLabComponent,
     EnergyInputComponent,
     EnergyOutputComponent,
+    WaveLabComponent,
+    WaveInputComponent,
+    WaveToolsComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,12 +4,14 @@ import { DynamicLabComponent } from './dynamic-lab/dynamic-lab.component';
 import { EnergyLabComponent } from './energy-lab/energy-lab.component';
 import { FrictionLabComponent } from './friction-lab/friction-lab.component';
 import { KinematicLabComponent } from './kinematic-lab/kinematic-lab.component';
+import { WaveLabComponent } from './wave-lab/wave-lab.component';
 
 const routes: Routes = [
   {path: 'kinematic-lab', component: KinematicLabComponent},
   {path: 'dynamic-lab', component: DynamicLabComponent},
   {path: 'friction-lab', component: FrictionLabComponent},
-  {path: 'energy-lab', component : EnergyLabComponent}
+  {path: 'energy-lab', component : EnergyLabComponent},
+  {path: 'wave-lab', component : WaveLabComponent},
 ];
 
 @NgModule({

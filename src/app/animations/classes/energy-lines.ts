@@ -36,4 +36,10 @@ export class EnergyLines {
     this.kineticLine.draw(0, -(this.energyData.getKinematicEnergy()));
     this.heatLine.draw(0, (this.energyData.getHeat()));
   }
+  
+  reset() : void {
+    this.potentialLine.draw(0, 0);
+    this.kineticLine.draw(0, 0);
+    this.heatLine.draw(0, 0);
+  }
 }

@@ -10,6 +10,13 @@ import { EnergyData } from '../classes/energy-data';
   styleUrls: ['./energy-lab.component.css']
 })
 
+/**
+ * TODO
+ * - [] Input : Que el incremento sea decimal
+ * - [] Input : No pueda haber valores negativos
+ * - [] Output : Reaccionar cuando los datos cambian
+ * - [] Animation : Si se actualiza el rozamiento, la barra cinetica se pone en negativo
+ */
 export class EnergyLabComponent extends BaseLabComponent {
   @ViewChild("Animation") animationDiv: ElementRef;
   private animation : EnergyAnimation;
@@ -29,7 +36,6 @@ export class EnergyLabComponent extends BaseLabComponent {
 
   onInitEvent() : void {
     console.log("Init received");
-    this.animation.stopSetupTicker();
     this.animation.startDropTicker();
   }
 }
