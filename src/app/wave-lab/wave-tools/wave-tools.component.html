@@ -1,1 +1,8 @@
-<p>wave-tools works!</p>
+<mat-card>
+  <mat-card-content>
+    <p> Tiempo: {{time / 1000}}</p>
+    <button mat-fab (click)="onInitClick()" color="accent">Iniciar</button> 
+    <button mat-fab (click)="onStopClick()" color="accent">Parar</button>
+    <button mat-fab (click)="onResetClick()" color="accent">Resetear</button>
+  </mat-card-content>
+</mat-card>

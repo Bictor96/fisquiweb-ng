@@ -1,4 +1,3 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { EnergyData } from 'src/app/classes/energy-data';
 import { CustomSpriteClass } from './custom-sprite-class';
 

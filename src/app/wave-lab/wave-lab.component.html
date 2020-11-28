@@ -3,3 +3,11 @@
     <!-- Aqui se inserta la animacion en el codigo -->
   </div>
 </mat-card>
+
+<wave-input 
+  (controlEvent)="onControlEventReceived($event)"
+  (changeEvent)="onChangeEventReceived($event)"
+></wave-input>
+
+<wave-tools></wave-tools>
+

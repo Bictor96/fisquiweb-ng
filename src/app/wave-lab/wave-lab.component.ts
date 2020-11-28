@@ -9,6 +9,13 @@ import { WaveData } from '../classes/wave-data';
   styleUrls: ['./wave-lab.component.css']
 })
 
+/**
+ * TODO:
+ * - [] Animacion : Herramienta para medir las ondas
+ * - [] Animacion : Cuadricula
+ * - [] Lab : Escala cuadricula en cms.
+ */
+
 export class WaveLabComponent extends BaseLabComponent {
   @ViewChild("Animation") animationDiv: ElementRef;
   private animation : WaveAnimation;
@@ -25,5 +32,19 @@ export class WaveLabComponent extends BaseLabComponent {
     this.animation.setApp(this.getApp());
     this.animation.setup();
     this.animation.animate();
+  }
+
+  onControlEventReceived(run : boolean) : void {
+    if (run) {
+      this.animation.animate();
+    } else {
+      this.animation.stop();
+    }
+  }
+
+  onChangeEventReceived(newData : WaveData) {
+    console.log("Changin data to " + JSON.stringify(newData));
+    this.waveData = newData;
+    this.animation.updateWaveData(this.waveData);
   }
 }

@@ -1,8 +1,6 @@
-interface FrictionDict {
-  [key : string] : number;
-}
+import { Dictionary } from '../utils/dictionary';
 
-export const FRICTION_VALUES : FrictionDict = {
+export const FRICTION_VALUES : Dictionary = {
   'friction-0' : 0.31,
   'friction-1' : 0.89,
   'friction-2' : 0.42,
