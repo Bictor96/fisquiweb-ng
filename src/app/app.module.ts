@@ -33,7 +33,9 @@ import { EnergyInputComponent } from './energy-lab/energy-input/energy-input.com
 import { EnergyOutputComponent } from './energy-lab/energy-output/energy-output.component';
 import { WaveLabComponent } from './wave-lab/wave-lab.component';
 import { WaveInputComponent } from './wave-lab/wave-input/wave-input.component';
-import { WaveToolsComponent } from './wave-lab/wave-tools/wave-tools.component'; 
+import { WaveToolsComponent } from './wave-lab/wave-tools/wave-tools.component';
+import { RefractionLabComponent } from './refraction-lab/refraction-lab.component';
+import { RefractionUiComponent } from './refraction-lab/refraction-ui/refraction-ui.component'; 
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { WaveToolsComponent } from './wave-lab/wave-tools/wave-tools.component';
     WaveLabComponent,
     WaveInputComponent,
     WaveToolsComponent,
+    RefractionLabComponent,
+    RefractionUiComponent,
   ],
   imports: [
     BrowserModule,

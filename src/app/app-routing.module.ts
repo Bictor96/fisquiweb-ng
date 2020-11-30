@@ -4,6 +4,7 @@ import { DynamicLabComponent } from './dynamic-lab/dynamic-lab.component';
 import { EnergyLabComponent } from './energy-lab/energy-lab.component';
 import { FrictionLabComponent } from './friction-lab/friction-lab.component';
 import { KinematicLabComponent } from './kinematic-lab/kinematic-lab.component';
+import { RefractionLabComponent } from './refraction-lab/refraction-lab.component';
 import { WaveLabComponent } from './wave-lab/wave-lab.component';
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'friction-lab', component: FrictionLabComponent},
   {path: 'energy-lab', component : EnergyLabComponent},
   {path: 'wave-lab', component : WaveLabComponent},
+  {path: 'refraction-lab', component : RefractionLabComponent},
 ];
 
 @NgModule({
