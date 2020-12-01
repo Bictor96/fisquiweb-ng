@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Point, Text } from 'pixi.js';
 import { CalibreLeg } from './calibre-leg';
 import { CustomSpriteClass } from './custom-sprite-class';
@@ -14,7 +15,7 @@ export class Calibre extends CustomSpriteClass{
     super('assets/calibre_cuerpo.png', 100, 100);
     this.static_leg = new CalibreLeg('assets/calibre_pata_estatica.png',20, 5, false);
     this.movable_leg = new CalibreLeg('assets/calibre_pata_movil.png', 80, 5, true);
-    this.sizeText = new Text((this.movable_leg.x / 10).toString(), {
+    this.sizeText = new Text((this.movable_leg.x / 10).toFixed(2), {
       fontFamily : 'Arial',
       fontSize: 18,
       fill: 0xFFFFFF,
@@ -23,6 +24,7 @@ export class Calibre extends CustomSpriteClass{
 
     this.sizeText.x = 280;
     this.sizeText.y = 15;
+
     
     this.addChild(this.static_leg);
     this.addChild(this.movable_leg);

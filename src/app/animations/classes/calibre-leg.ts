@@ -10,7 +10,6 @@ export class CalibreLeg extends CustomSpriteClass {
 
   constructor(asset : string, x : number, y : number, draggable : boolean) {
     super(asset, x, y);
-
     if (draggable) {
       this.interactive = true;
       this.buttonMode = true;
@@ -49,7 +48,7 @@ export class CalibreLeg extends CustomSpriteClass {
   }
 
   private makePositionText() : string {
-    return ((this.x - this.leftStop) / 100).toPrecision(3);
+    return ((this.x - this.leftStop) / 100).toFixed(2);
   }
 
 }

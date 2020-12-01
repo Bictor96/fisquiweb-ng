@@ -4,7 +4,7 @@ import { KinematicAnimation } from '../animations/kinematic-animation';
 import { KinematicData } from '../classes/kinematic-data';
 import { TimeLoopService } from '../time-loop.service';
 import { KinematicOutputData } from '../classes/kinematic-output-data';
-import { KinematicOutputComponent } from '../kinematic-output/kinematic-output.component';
+import { KinematicOutputComponent } from './kinematic-output/kinematic-output.component';
 import { BaseLabComponent } from '../base-component/base-lab';
 
 @Component({

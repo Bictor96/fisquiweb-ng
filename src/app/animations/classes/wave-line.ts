@@ -24,7 +24,6 @@ export class WaveLine extends Line {
     this.waveData = data;
   }
 
-
   private resetLine() {
     this.clear();
     this.lineStyle(this.strokeWitdh, this.color);

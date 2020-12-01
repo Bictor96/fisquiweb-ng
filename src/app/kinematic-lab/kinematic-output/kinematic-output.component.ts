@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { KinematicData } from '../classes/kinematic-data';
-import { KinematicOutputData } from '../classes/kinematic-output-data';
+import { KinematicData } from '../../classes/kinematic-data';
+import { KinematicOutputData } from '../../classes/kinematic-output-data';
 
 @Component({
   selector: 'kinematic-output',

@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { KinematicLabComponent } from './kinematic-lab/kinematic-lab.component';
-import { KinematicFormComponent } from './kinematic-form/kinematic-form.component';
+import { KinematicFormComponent } from './kinematic-lab/kinematic-form/kinematic-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 
@@ -22,7 +22,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list'; 
 import {MatDividerModule} from '@angular/material/divider'; 
 import {MatTableModule} from '@angular/material/table';
-import { KinematicOutputComponent } from './kinematic-output/kinematic-output.component';
+import { KinematicOutputComponent } from './kinematic-lab/kinematic-output/kinematic-output.component';
 import { DynamicLabComponent } from './dynamic-lab/dynamic-lab.component';
 import { DynamicInputComponent } from './dynamic-lab/dynamic-input/dynamic-input.component';
 import { DynamicOutputComponent } from './dynamic-lab/dynamic-output/dynamic-output.component';
@@ -35,7 +35,9 @@ import { WaveLabComponent } from './wave-lab/wave-lab.component';
 import { WaveInputComponent } from './wave-lab/wave-input/wave-input.component';
 import { WaveToolsComponent } from './wave-lab/wave-tools/wave-tools.component';
 import { RefractionLabComponent } from './refraction-lab/refraction-lab.component';
-import { RefractionUiComponent } from './refraction-lab/refraction-ui/refraction-ui.component'; 
+import { RefractionUiComponent } from './refraction-lab/refraction-ui/refraction-ui.component';
+import { CircuitsLabComponent } from './circuits-lab/circuits-lab.component';
+import { CircuitsUiComponent } from './circuits-lab/circuits-ui/circuits-ui.component'; 
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { RefractionUiComponent } from './refraction-lab/refraction-ui/refraction
     WaveToolsComponent,
     RefractionLabComponent,
     RefractionUiComponent,
+    CircuitsLabComponent,
+    CircuitsUiComponent,
   ],
   imports: [
     BrowserModule,

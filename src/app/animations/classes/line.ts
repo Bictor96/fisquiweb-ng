@@ -1,4 +1,4 @@
-
+ 
 import {Graphics} from 'pixi.js';
 
 export class Line  extends Graphics {

@@ -1,62 +1,40 @@
+import { ThrowStmt } from '@angular/compiler';
+import { Graphics } from 'pixi.js';
 import { RefractionData } from 'src/app/classes/refraction-data';
+import { RefractionLabComponent } from 'src/app/refraction-lab/refraction-lab.component';
 import { Vector } from 'src/app/utils/vector';
 import { AnimationContainer } from './animation-container';
+import { AxisLines } from './axis-lines';
+import { CustomSpriteClass } from './custom-sprite-class';
 import { Line } from './line';
+import { RefractionLabels } from './refraction-labels';
+import { RefractionLine } from './refraction-line';
+import { RefractionLines } from './refraction-lines';
 
 export class RefractionContainer extends AnimationContainer {
   private refractionData : RefractionData;
-  private normalLine : Line;
-  private horizonLine : Line;
+  private axisLines : AxisLines;
+  private refractionLines : RefractionLines;
+  private refractionLabels : RefractionLabels;
 
-  private beam : Line;
-
-  constructor() {
-     super(370, 350, 0x303030);
-      
-     this.horizonLine = this.addLine(new Vector(0, this.height/2), 0xADD8E6);
-     this.horizonLine.draw(this.width, 0);
-
-     this.normalLine = this.addLine( new Vector(this.width/2, 0), 0xFFFF00);
-     this.normalLine.draw(0, this.height - 20);
-
-     this.refractionData = new RefractionData();
+  constructor(data : RefractionData) {
+      super(450, 400, 0x303030);
+      this.refractionData = data;
+      this.axisLines = new AxisLines(this);
+      this.refractionLines = new RefractionLines(this);
+      this.refractionLabels = new RefractionLabels(this);
    }
 
    generateBeam() : void {
-     this.removeChild(this.beam);
-
-     let displacement = this.randomDisplacement();
-     this.beam = this.addLine(new Vector(displacement.x, displacement.y), 0xFFFFFF);
-     this.beam.draw(this.width/2 - displacement.x, this.height/2 - displacement.y);
-     console.log("Beam Angle: " + this.getAngle());
-
-     this.refractionData.setIncidenceAngle(this.getAngle());
-     this.refractionData.setRefractionAngleFromIncidence();
+      this.refractionLines.generateBeam();
+      this.refractionLabels.update();
    }
 
-   private getAngle() : number {
-      let midVector = new Vector(this.width/2, this.height / 2);
-      let beamVector = new Vector(midVector.x - this.beam.x, midVector.y - this.beam.y);
-      let normalVector = new Vector(midVector.x - this.normalLine.x, midVector.y - this.normalLine.y);
-
-      let dotProduct = (beamVector.x * normalVector.x) + (beamVector.y * normalVector.y);
-      let beamMagnitude = Math.sqrt(Math.pow(beamVector.x, 2) + Math.pow(beamVector.y, 2));
-      let normalMagnitude = Math.sqrt(Math.pow(normalVector.x, 2) + Math.pow(normalVector.y, 2));
-
-      // Coseno del angulo
-      //return (dotProduct) / (beamMagnitude * normalMagnitude)
-      return Math.acos((dotProduct) / (beamMagnitude * normalMagnitude)) * (180/Math.PI);
+   getData() : RefractionData {
+      return this.refractionData;
    }
 
-   private randomDisplacement() : Vector {
-     let xDisplacement = 20;
-     let yDisplacement = 20;
-     if (Math.round(Math.random()) == 0 ) {
-        xDisplacement = Math.random() * this.width / 2;
-     } else {
-        yDisplacement = Math.random() * this.height / 2;
-     }
-
-     return new Vector(xDisplacement, yDisplacement);
+   getNormal() : Line {
+      return this.axisLines.normalLine;
    }
 }

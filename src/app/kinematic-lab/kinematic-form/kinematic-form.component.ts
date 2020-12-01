@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup} from '@angular/forms';
-import {KinematicData} from '../classes/kinematic-data';
-import { TimeLoopService } from '../time-loop.service';
+import {KinematicData} from '../../classes/kinematic-data';
+import { TimeLoopService } from '../../time-loop.service';
 
 @Component({
   selector: 'kinematic-form',

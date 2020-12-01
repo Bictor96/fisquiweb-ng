@@ -4,4 +4,6 @@
   </div>
 </mat-card>
 
-<refraction-ui (generateEvent)="onGenerateEventReceived()"></refraction-ui>
+<refraction-ui [data]="refractionData" 
+  (protractorEvent)="onProtractorEventReceived($event)"
+  (generateEvent)="onGenerateEventReceived()"></refraction-ui>

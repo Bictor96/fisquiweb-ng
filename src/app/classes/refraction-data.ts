@@ -13,13 +13,21 @@ export class RefractionData {
 
   setRefractionAngleFromIncidence() {
     // Calculo del seno de r
-    let sin = (this.n1 * Math.sin(this.i)) / this.n2;
-    this.r = Math.asin(sin) * (180/Math.PI);
+    this.r = this.n1 * Math.sin(this.i) / this.n2;
+    console.log("Incidence: " + (this.i*180.0) / Math.PI);
     console.log("New refraction: " + this.r);
+    console.log("N1: " + this.n1);
+    console.log("N2: " + this.n2);
+  }
+
+  generate() : void {
+    
   }
 
   setIncidenceAngle( angle : number ) { this.i = angle; }
   setRefractionAngle( angle : number ) { this.r = angle; }
+  setN1(n1 : number ) {this.n1 = n1;}
+  setN2(n2 : number ) {this.n2 = n2;}
 
   getN1() { return this.n1; }
   getN2() { return this.n2; }
