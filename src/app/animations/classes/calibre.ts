@@ -1,5 +1,5 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { Point, Text } from 'pixi.js';
+import { InteractionData, InteractionEvent, Point, Text } from 'pixi.js';
 import { CalibreLeg } from './calibre-leg';
 import { CustomSpriteClass } from './custom-sprite-class';
 
@@ -9,7 +9,7 @@ export class Calibre extends CustomSpriteClass{
   private sizeText : Text;
 
   private dragging = false;
-  private data : any;
+  private data : InteractionData;
 
   constructor() {
     super('assets/calibre_cuerpo.png', 100, 100);
@@ -48,7 +48,7 @@ export class Calibre extends CustomSpriteClass{
     this.sizeText.text = text;
   }
 
-  private onDragStart(event) : void {
+  private onDragStart(event : InteractionEvent) : void {
     if (!this.isOnDraggableLegPosition(event.data)) {
       this.dragging = true;
       this.data = event.data;
