@@ -32,6 +32,7 @@ export class DraggableSprite extends CustomSpriteClass {
       const newPosition = this.data.getLocalPosition(this.parent);
       this.x = newPosition.x;
       this.y = newPosition.y;
+      this.parent.emit('moving', this);
     }
   }
 }

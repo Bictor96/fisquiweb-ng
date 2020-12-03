@@ -1,4 +1,5 @@
 import { InteractionEvent, Point } from 'pixi.js';
+import { PixiUtils } from 'src/app/utils/pixi-utils';
 import { DraggableSprite } from '../draggable-sprite';
 import { ComponentConection } from './component-conection';
 
@@ -59,16 +60,12 @@ export class CircuitComponent extends DraggableSprite {
   }
 
   private isOnConnectionPosition(connectionPosition : Point, position : Point) : boolean {
-    let distance = this.distanceBetweenPoints(connectionPosition, position);
+    let distance = PixiUtils.distanceBetweenPoints(connectionPosition, position);
     console.log("Distancia: " + distance);
     if (distance <= 4.0) {
       return true;
     }
 
     return false;
-  }
-
-  private distanceBetweenPoints(point1 : Point, point2 : Point) {
-    return Math.sqrt(Math.pow(point2.x - point1.x,2) + Math.pow(point2.y - point1.y, 2));
-  }  
+  } 
 }

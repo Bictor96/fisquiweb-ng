@@ -1,15 +1,27 @@
 import { AnimationContainer } from '../animation-container';
-import { CircuitBase } from './circuit-base';
-import { Resistance } from './resistance';
+import { BoardContainer } from './board-container';
+import { CircuitComponent } from './circuit-component';
+import {ComponentsContainer} from './components-container';
 
 export class CircuitContainer extends AnimationContainer {
-  private base : CircuitBase;
-
+  private boardContainer : BoardContainer
+  private componentsContainer : ComponentsContainer;
+   
   constructor() {
-    super(500, 500, 0x303030);
-    this.base = new CircuitBase();
+    super(800, 640, 0xFFFFFF);
+    this.boardContainer = new BoardContainer();
+    this.componentsContainer = new ComponentsContainer(this.boardContainer);
 
+    this.addChild(this.boardContainer);
+    this.addChild(this.componentsContainer);
 
-    this.addChild(this.base);
+    this.componentsContainer.moveContainer(500, 0);
+
+    this.on('component-removed', this.onComponentRemoved);
+  }
+
+  private onComponentRemoved(component : CircuitComponent) : void {
+    console.log("Removed received");
+    this.componentsContainer.addChild(component);
   }
 }

@@ -1,6 +1,10 @@
 import * as PIXI from 'pixi.js';
 
 export class PixiUtils {
+
+  static distanceBetweenPoints(point1 : PIXI.Point, point2 : PIXI.Point) {
+    return Math.sqrt(Math.pow(point2.x - point1.x,2) + Math.pow(point2.y - point1.y, 2));
+  } 
   
   static setupTillingSprite(app: PIXI.Application, asset: string, scale: any, position: any ) : PIXI.TilingSprite{
     let sprite : PIXI.TilingSprite =  PixiUtils.loadTilingSprite(asset, scale.width, scale.height);
