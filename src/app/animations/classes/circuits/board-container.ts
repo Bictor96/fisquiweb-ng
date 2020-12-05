@@ -1,35 +1,44 @@
 import { AnimationContainer } from '../animation-container';
 import { CircuitBase } from './circuit-base';
 import { CircuitComponent } from './circuit-component';
-import { ComponentConection } from './component-conection';
+import { ComponentsContainer } from './components-container';
 
 export class BoardContainer extends AnimationContainer {
   private base : CircuitBase;
-  private components : CircuitComponent[];
+  private componentContainer : ComponentsContainer;
 
   constructor() {
-    super(500, 500, 0x303030);
+    super(600, 500, 0x303030);
     this.base = new CircuitBase();
-    this.components = [];
+    this.componentContainer = new ComponentsContainer(this);
 
     this.addChild(this.base);
-    this.on('moving', this.onComponentMoving);
+    this.addChild(this.componentContainer);
+    this.componentContainer.moveContainer(560, 0);
+
+    this.setupCoordsOnClick()
+    
+    this.on('component-removed', this.onComponentRemoved);
   }
 
-  isComponentOnConnector(component : CircuitComponent) : ComponentConection {
-    return this.base.setIfComponentOnConnector(component);
+  setupCoordsOnClick() : void {
+    this.interactive = true;
+    this.buttonMode = true;
+    this.on('pointerdown', this.onClick);
   }
 
-  addComponent(component : CircuitComponent) {
-    this.components.push(component);
-    this.addChild(component);
+  onClick(event) {
+    console.log(event.data.global);
   }
 
-  private onComponentMoving(component : CircuitComponent) : void {
-    let connection = this.base.setIfComponentOnConnector(component);
-    if (connection == null) {
-      this.parent.emit('component-removed', component, this.parent);
-      this.removeChild(component);
+  isComponentOnConnector(component : CircuitComponent) : void {
+    this.base.setIfComponentOnConnector(component);
+  }
+
+  private onComponentRemoved(component : CircuitComponent) : void {
+    console.log("Component Removed received");
+    if (component != null) {
+      this.componentContainer.setComponent(component);
     }
   }
 }

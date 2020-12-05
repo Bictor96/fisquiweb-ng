@@ -1,15 +1,15 @@
 import { BaseAnimation } from '../../base-animation';
 import { Calibre } from '../calibre';
 import { CustomSpriteClass } from '../custom-sprite-class';
+import { BoardContainer } from './board-container';
 import { CircuitBase } from './circuit-base';
-import { CircuitContainer } from './circuit-container';
 
 export class CircuitsAnimation extends BaseAnimation {
-  private circuitContainer : CircuitContainer;
+  private circuitContainer : BoardContainer;
 
   constructor () {
     super();
-    this.circuitContainer = new CircuitContainer();
+    this.circuitContainer = new BoardContainer();
   }
 
   setup() {

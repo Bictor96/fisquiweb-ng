@@ -13,14 +13,11 @@ export class CircuitComponent extends DraggableSprite {
     this.leftConnection = new ComponentConection('left', 0, 0);
     this.rightConnection = new ComponentConection('right', 0, 0);
 
-    this.rightConnection.connectionZone.width = 3;
-    this.rightConnection.connectionZone.height = 3;
-
-    this.leftConnection.connectionZone.width = 3;
-    this.leftConnection.connectionZone.height = 3;
-
     this
     .on('pointerdown', this.onDragStart)
+
+    this.addChild(this.rightConnection);
+    this.addChild(this.leftConnection);
   }
 
   moveRightConnection(x : number, y : number ) {
@@ -31,6 +28,11 @@ export class CircuitComponent extends DraggableSprite {
   moveLeftConnection(x : number, y : number ) {
     this.leftConnection.x = x;
     this.leftConnection.y = y;
+  }
+
+  setOnBoard(TAG : string, position : Point ) : void {
+    console.log("Setting to connector " + TAG);
+    this.position = position;
   }
 
   onDragStart(event : InteractionEvent) : void {
@@ -61,7 +63,7 @@ export class CircuitComponent extends DraggableSprite {
 
   private isOnConnectionPosition(connectionPosition : Point, position : Point) : boolean {
     let distance = PixiUtils.distanceBetweenPoints(connectionPosition, position);
-    console.log("Distancia: " + distance);
+    console.log("Angulo: " + this.angle);
     if (distance <= 4.0) {
       return true;
     }
