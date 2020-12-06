@@ -1,77 +1,80 @@
-import { Point } from 'pixi.js';
+import { Point, Text } from 'pixi.js';
+import { CircuitData } from 'src/app/classes/circuits-data';
 import { CustomSpriteClass } from '../custom-sprite-class';
 import { BoardConnector } from './board-connector';
+import BoardConnectors from './board-connectors';
 import { CircuitComponent } from './circuit-component';
+import { ComponentText } from './component-text';
+import { Resistance } from './resistance';
 
 export class CircuitBase extends CustomSpriteClass {
-  private topConnector : BoardConnector;
-  private leftConnector : BoardConnector;
-  private bottomConnector : BoardConnector;
-  private rightConnector : BoardConnector;
+  private boardConnectors : BoardConnectors;
+  private circuitData : CircuitData;
+  private voltageLabel : ComponentText;
+
+  private components : CircuitComponent[]
 
   constructor() {
     super('assets/circuit-base.png', 0, 0);
-    
-    this.setupTopConnector();
-    this.setupLeftConnector();
-    this.setupBottomConnector();
-    this.setupRightConnector();
+    this.circuitData = new CircuitData();
+    this.boardConnectors = new BoardConnectors(this);
+    this.voltageLabel = new ComponentText(this.circuitData.totalVoltage.toString());
+    this.components = new Array<CircuitComponent>();
+  
+    this.addChild(this.voltageLabel);
+    this.voltageLabel.position = new Point(380, 22);
 
-    this.addChild(this.topConnector);
-    this.addChild(this.leftConnector);
-    this.addChild(this.bottomConnector);
-    this.addChild(this.rightConnector);
-    
-    this.on('component-removed', (component) => {
-      this.parent.emit('component-removed', component);
-    })
+    this.on('component-removed', this.onComponentRemoved)
+    this.on('resistance-updated', this.onResistanceUpdated)
   }
 
   setIfComponentOnConnector(component : CircuitComponent) : void {
-    if (this.topConnector.canConnect(component)) {
-      console.log("CAN CONNECT");
-      this.setComponent(this.topConnector, component);
-    } else if (this.leftConnector.canConnect(component)) {
-      this.setComponent(this.leftConnector, component);
-    } else if (this.bottomConnector.canConnect(component)) {
-      this.setComponent(this.bottomConnector, component);
-    } else if (this.rightConnector.canConnect(component)) {
-      this.setComponent(this.rightConnector, component);
+    let isSet = this.boardConnectors.setIfNearEnough(component);
+    if (isSet) {
+      this.components.push(component);
+      console.log("Connected Components: " + this.components.length);
     }
   }
 
-  private setComponent(connector : BoardConnector, component : CircuitComponent) : void {
-    component.setDragging(false);
-    component.setParent(connector);
-    component.setOnBoard(connector.TAG, connector.midPoint);
+  incrementVoltage() {
+    if (this.circuitData.totalVoltage < 100) {
+      this.updateVoltage(10);
+    }
   }
 
-
-  private setupTopConnector() {
-    let midPoint = new Point(198, 48);
-    let leftPoint = new Point(187, 48);
-    let rightPoint = new Point(206, 48);
-    this.topConnector = new BoardConnector('top', midPoint, leftPoint, rightPoint);
+  decrementVoltage() {
+    if (this.circuitData.totalVoltage > 0) {
+      this.updateVoltage(-10);
+    }
   }
 
-  private setupLeftConnector() {
-    let midPoint = new Point(52, 221);
-    let leftPoint = new Point(52, 316);
-    let rightPoint = new Point(52, 120);
-    this.leftConnector = new BoardConnector('left', midPoint, leftPoint, rightPoint);
+  updateVoltage(quantity : number) {
+    this.circuitData.totalVoltage += quantity;
+    this.voltageLabel.text = this.circuitData.totalVoltage.toFixed(0);
+    this.updateComponents();
   }
 
-  private setupBottomConnector() {
-    let midPoint = new Point(295, 418);
-    let leftPoint = new Point(194, 418);
-    let rightPoint = new Point(403, 418);
-    this.bottomConnector = new BoardConnector('bot', midPoint, leftPoint, rightPoint);
+  getCircuitData() {
+    return this.circuitData;
   }
 
-  private setupRightConnector() {
-    let midPoint = new Point(530, 229);
-    let leftPoint = new Point(530, 124);
-    let rightPoint = new Point(530, 314);
-    this.rightConnector = new BoardConnector('right', midPoint, leftPoint, rightPoint);
+  private onComponentRemoved(component : CircuitComponent) {
+    component.onRemoved(this.circuitData);
+    this.parent.emit('component-removed', component);
+    this.components = this.components.filter(c => c != component);
+    console.log("Connected Components: " + this.components.length);
+  }
+
+  private onResistanceUpdated(value : number) {
+    console.log("Resistance Updated");
+    this.circuitData.resistance += value;
+    this.updateComponents();
+  }
+
+  private updateComponents() {
+    this.components.forEach((c) => {
+      console.log("Updating " + c.constructor.name);
+      c.updateLabel(this.circuitData);
+    });
   }
 }

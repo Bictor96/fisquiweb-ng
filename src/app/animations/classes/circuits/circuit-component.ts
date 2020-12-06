@@ -1,11 +1,14 @@
 import { InteractionEvent, Point } from 'pixi.js';
+import { CircuitData } from 'src/app/classes/circuits-data';
 import { PixiUtils } from 'src/app/utils/pixi-utils';
 import { DraggableSprite } from '../draggable-sprite';
+import { BoardConnector } from './board-connector';
 import { ComponentConection } from './component-conection';
 
 export class CircuitComponent extends DraggableSprite {
   leftConnection : ComponentConection;
   rightConnection : ComponentConection;
+  boardConnector : BoardConnector;
 
   constructor(asset : string, x : number, y : number) {
     super(asset, x, y);
@@ -30,9 +33,29 @@ export class CircuitComponent extends DraggableSprite {
     this.leftConnection.y = y;
   }
 
-  setOnBoard(TAG : string, position : Point ) : void {
-    console.log("Setting to connector " + TAG);
-    this.position = position;
+  onConnect(connector : BoardConnector, circuitData : CircuitData) : void {
+    this.setupOnConnector(connector);
+    this.updateData(circuitData);
+  }
+
+  onRemoved(circuitData : CircuitData) : void {
+    this.boardConnector = null;
+  }
+
+  updateLabel(circuitData : CircuitData) : void {}
+
+  private setupOnConnector(connector : BoardConnector) : void {
+    this.setDragging(false);
+    this.setParent(connector);
+    this.setOnBoard(connector);
+  }
+
+  updateData(circuitData : CircuitData) : void {};
+
+  setOnBoard(connector : BoardConnector ) : void {
+    console.log("Setting to connector " + connector.TAG);
+    this.position = connector.midPoint;
+    this.boardConnector = connector;
   }
 
   onDragStart(event : InteractionEvent) : void {

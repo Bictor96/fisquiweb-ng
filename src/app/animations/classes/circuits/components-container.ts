@@ -12,6 +12,7 @@ import { ParallelResistance } from './parallel_resistance';
 export class ComponentsContainer extends AnimationContainer {
   private circuit : BoardContainer;
   private resistance : Resistance;
+  private resistance2 : Resistance;
   private longWire : LongWire;
   private longWire2 : LongWire;
   private shortWire : ShortWire;
@@ -23,6 +24,7 @@ export class ComponentsContainer extends AnimationContainer {
     super(250, 500, 0x424242);
     this.circuit = circuitContainer;
     this.resistance = new Resistance(120, 100);
+    this.resistance2 = new Resistance(180, 180);
     this.longWire = new LongWire(120, 150);
     this.longWire2 = new LongWire(120, 250);
     this.shortWire = new ShortWire(100, 200);
@@ -31,6 +33,7 @@ export class ComponentsContainer extends AnimationContainer {
     this.parallelResistance = new ParallelResistance(50, 50);
 
     this.addChild(this.resistance);
+    this.addChild(this.resistance2);
     this.addChild(this.longWire);
     this.addChild(this.shortWire);
     this.addChild(this.longWire2);
