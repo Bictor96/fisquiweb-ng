@@ -44,7 +44,7 @@ const auth = () => {
   }
 }
 
-app.post('/authenticate', auth() , (req, res) => {
+app.post('api/authenticate', auth() , (req, res) => {
   res.status(200).json({"statusCode" : 200 ,"user" : req.user});
 });
 
@@ -62,7 +62,7 @@ app.get('/getData', isLoggedIn, (req, res) => {
 })
 
 
-var server = app.listen(8080, function () {
+var server = app.listen(process.env.PORT || 8080, function () {
   var port = server.address().port;
   console.log("App now running on port", port);
 });
