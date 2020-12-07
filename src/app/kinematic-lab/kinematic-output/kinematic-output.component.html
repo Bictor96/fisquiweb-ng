@@ -1,14 +1,15 @@
 <div class="kinematic-output">
-  <mat-card>
+  
+  <div class="output-card">
     <mat-grid-list cols="4">
-      <mat-grid-tile>Tiempo: {{time | number}}</mat-grid-tile>
-      <mat-grid-tile>Posición: {{data.position | number}}</mat-grid-tile>
-      <mat-grid-tile>Velocidad: {{data.velocity | number}}</mat-grid-tile>
-      <mat-grid-tile>Aceleración: {{data.acceleration | number}} </mat-grid-tile>
+      <mat-grid-tile>Tiempo: {{time | number : '1.0-2'}}</mat-grid-tile>
+      <mat-grid-tile>Posición: {{data.position | number : '1.0-2'}}</mat-grid-tile>
+      <mat-grid-tile>Velocidad: {{data.velocity | number : '1.0-2'}}</mat-grid-tile>
+      <mat-grid-tile>Aceleración: {{data.acceleration | number : '1.0-2'}} </mat-grid-tile>
     </mat-grid-list>
-  </mat-card>
+  </div>
 
-  <div class="example-container mat-elevation-z8">
+  <div class="table-container mat-elevation-z8">
     <table mat-table [dataSource]="tableData">
   
       <!-- Position Column -->

@@ -1,13 +1,19 @@
 * {
-  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.kinematic-ui {
-  text-align: center;
+.animation-card {
+  margin-top: 5em;
 }
 
-.kinematic-ui-element {
-  display: inline-block;
+.animation-card mat-card{
+  min-width: 1080px;
+  min-height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .kinematicAnimation {
