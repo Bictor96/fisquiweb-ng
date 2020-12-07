@@ -8,6 +8,7 @@ import { KinematicLabComponent } from './kinematic-lab/kinematic-lab.component';
 import { KinematicFormComponent } from './kinematic-lab/kinematic-form/kinematic-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
+import { HttpClientModule } from '@angular/common/http';
 
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -37,7 +38,8 @@ import { WaveToolsComponent } from './wave-lab/wave-tools/wave-tools.component';
 import { RefractionLabComponent } from './refraction-lab/refraction-lab.component';
 import { RefractionUiComponent } from './refraction-lab/refraction-ui/refraction-ui.component';
 import { CircuitsLabComponent } from './circuits-lab/circuits-lab.component';
-import { CircuitsUiComponent } from './circuits-lab/circuits-ui/circuits-ui.component'; 
+import { CircuitsUiComponent } from './circuits-lab/circuits-ui/circuits-ui.component';
+import { LoginComponent } from './login/login.component'; 
 
 @NgModule({
   declarations: [
@@ -60,9 +62,11 @@ import { CircuitsUiComponent } from './circuits-lab/circuits-ui/circuits-ui.comp
     RefractionUiComponent,
     CircuitsLabComponent,
     CircuitsUiComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
