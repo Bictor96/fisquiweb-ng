@@ -29,11 +29,10 @@ app.use(passport.session());
 app.use(bodyParser.json());
 
 // Creacion del link al directio de buildeo de Angular
-var distDir = __dirname + "/dist";
+var distDir = __dirname + "/dist/fisquiweb/";
 app.use(express.static(distDir))
 
 const auth = () => {
-  console.log("Auth")
   return (req, res, next) => {
     passport.authenticate('local', (error, user, info) => {
       if(error) res.status(400).json({"statusCode" : 200 ,"message" : error});
@@ -63,6 +62,7 @@ app.get('/getData', isLoggedIn, (req, res) => {
 })
 
 
-app.listen(3000, () => {
-  console.log('App running at 3000')
-})
+var server = app.listen(8080, function () {
+  var port = server.address().port;
+  console.log("App now running on port", port);
+});
