@@ -1,7 +1,7 @@
 <div class="friction-ui">
   <mat-card class="friction-card">
     <mat-card-title>
-      Hey
+      Datos:
     </mat-card-title>
     <mat-card-content>
       <!-- Input Masa -->
@@ -31,9 +31,9 @@
 
       <!-- Output Datos -->
       <mat-grid-list cols="3">
-        <mat-grid-tile>Fuerza Estatica: {{frictionData.getStaticForce() | number : '1.0-2'}}</mat-grid-tile>
-        <mat-grid-tile>Fuerza : {{frictionData.appliedForce | number : '1.0-2'}} </mat-grid-tile>
-        <mat-grid-tile>Velocidad: {{frictionData.velocity | number : '1.0-2'}}</mat-grid-tile>
+        <mat-grid-tile>Fuerza Estatica: {{frictionData.getStaticForce() | number}}</mat-grid-tile>
+        <mat-grid-tile>Fuerza : {{frictionData.appliedForce | number}} </mat-grid-tile>
+        <mat-grid-tile>Velocidad: {{frictionData.velocity | number}}</mat-grid-tile>
       </mat-grid-list>
     </mat-card-content>
   </mat-card>

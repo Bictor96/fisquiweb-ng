@@ -1,11 +1,22 @@
-.dynamic-ui {
-  text-align: center;
+* {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.dynamic-ui-element {
-  display: inline-block;
-
+.animation-card{
+  width: inherit;
+  margin-top: 5em;
 }
+
+.animation-card mat-card{
+  min-width: 960px;
+  min-height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .dynamicAnimation {
   text-align: center;
@@ -13,4 +24,9 @@
   border-radius: 0.5em;
   width: 720px;
   height: 240px;
+}
+
+
+.dynamic-ui {
+  margin-top: 2em;
 }

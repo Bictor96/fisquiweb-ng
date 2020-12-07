@@ -1,14 +1,13 @@
 <div class="dynamic-output">
-    <mat-card>
-        <mat-grid-list cols="5">
-            <mat-grid-tile> Tiempo: {{data.time | number : '1.0-2'}}</mat-grid-tile>
-            <mat-grid-tile> Posición: {{data.position | number : '1.0-2'}}</mat-grid-tile>
-            <mat-grid-tile> Velocity: {{data.velocity | number : '1.0-2'}}</mat-grid-tile>
-            <mat-grid-tile> Acceleration: {{data.acceleration | number : '1.0-2'}}</mat-grid-tile>
-            <mat-grid-tile> Fuerza Total: {{ data.force | number : '1.0-2'}}</mat-grid-tile>
-        </mat-grid-list>
-    </mat-card>
-
+    <div class="dynamic-grid">
+      <mat-grid-list cols="5">
+        <mat-grid-tile> Tiempo: {{data.time | number : '1.0-2'}}</mat-grid-tile>
+        <mat-grid-tile> Posición: {{data.position | number : '1.0-2'}}</mat-grid-tile>
+        <mat-grid-tile> Velocity: {{data.velocity | number : '1.0-2'}}</mat-grid-tile>
+        <mat-grid-tile> Acceleration: {{data.acceleration | number : '1.0-2'}}</mat-grid-tile>
+        <mat-grid-tile> Fuerza Total: {{ data.force | number : '1.0-2'}}</mat-grid-tile>
+      </mat-grid-list>
+    </div>
     <div class="example-container mat-elevation-z8">
         <table mat-table [dataSource]="tableData">
       

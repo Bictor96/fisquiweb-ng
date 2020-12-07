@@ -1,0 +1,8 @@
+mat-card {
+  margin-left: 2em;
+  width: 100px;
+}
+
+mat-card button {
+  margin: 0.2em;
+}

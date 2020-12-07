@@ -1,11 +1,15 @@
 .dynamic-output mat-card {
-  margin-top: 1em;
-  min-width: 80px;
+  margin-top: 2em;
   width: 500px;
 }
 
+.dynamic-grid {
+ width: 500px;
+ background-color: #424242;
+}
+
 .example-container {
-  height: 400px;
+  height: 300px;
   overflow: auto;
 }
 

@@ -1,3 +1,9 @@
+* {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .energyAnimation {
   text-align: center;
   text-align: center;
@@ -7,15 +13,14 @@
   height: 480px;
 }
 
-.energy-ui {
-  width: 100%;
-  display: inline-block;
+.animation-card{
+  margin-top: 5em;
 }
 
-.energy-ui energy-input {
-  width: 30%;
-}
-
-.energy-ui energy-output {
-  width: 30%;
+.animation-card mat-card{
+  min-width: 960px;
+  min-height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

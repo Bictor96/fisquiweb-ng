@@ -5,25 +5,26 @@
       <!-- Indice de Refraccion 1 -->
       <mat-form-field>
         <mat-label> N1: </mat-label>
-        <input matInput type="number" formControlName="n1" placeholder="" value="1.0">
+        <input class="refraction-input" matInput type="number" formControlName="n1" placeholder="" value="1.0">
       </mat-form-field>
 
       <!-- Indice de Refraccion 2 -->
       <mat-form-field>
         <mat-label> N2: </mat-label>
-        <input matInput type="number" formControlName="n2" placeholder="" value="1.5">
+        <input class="refraction-input" matInput type="number" formControlName="n2" placeholder="" value="1.5">
       </mat-form-field>
     </form>
   </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="onGenerateButtonClick()"> Generar </button>
+  </mat-card-actions>
 </mat-card>
 
 <mat-card>
-  <mat-card-title> Transporte </mat-card-title>
+  <mat-card-title> Controles del Transportador:  </mat-card-title>
   <mat-card-actions>
     <button mat-raised-button color="primary" (click)="onLeftButton()"> Rotar Izquierda </button>
     <button mat-raised-button color="primary" (click)="onShowHideButton()"> Mostrar/Ocultar </button>
     <button mat-raised-button color="primary" (click)="onRightButton()"> Rotar Derecha </button>
   </mat-card-actions>
 </mat-card>
-
-<button mat-raised-button color="primary" (click)="onGenerateButtonClick()"> Generar </button>

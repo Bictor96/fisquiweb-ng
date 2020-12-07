@@ -1,14 +1,23 @@
-<mat-card>
-  <mat-card-content>
-    <button (click)="onInitClick()" mat-raised-button color="primary"> Iniciar </button>
-    <button (click)="onStopClick()" mat-raised-button color="primary"> Parar </button>
-  </mat-card-content>
-</mat-card>
-
-<div class="wave-button">
-  <button mat-fab (click)="onInputClick('wave-1')" color="accent">1</button>
-  <button mat-fab (click)="onInputClick('wave-2')" color="accent">2</button>
-  <button mat-fab (click)="onInputClick('wave-3')" color="accent">3</button>
-  <button mat-fab (click)="onInputClick('wave-4')" color="accent">4</button>
-  <button mat-fab (click)="onInputClick('wave-5')" color="accent">5</button>
+<div class="wave-input">
+  <mat-card>
+    <mat-card-title> Control de Animación: </mat-card-title>
+    <mat-card-content>
+      <button (click)="onInitClick()" mat-raised-button color="primary"> Iniciar </button>
+      <button (click)="onStopClick()" mat-raised-button color="primary"> Parar </button>
+    </mat-card-content>
+  </mat-card>
+  
+  <mat-card>
+    <mat-card-title> Coeficientes de Rozamiento: </mat-card-title>
+    <mat-card-content>
+      <div class="wave-button">
+        <button mat-fab (click)="onInputClick('wave-1')" color="accent">1</button>
+        <button mat-fab (click)="onInputClick('wave-2')" color="accent">2</button>
+        <button mat-fab (click)="onInputClick('wave-3')" color="accent">3</button>
+        <button mat-fab (click)="onInputClick('wave-4')" color="accent">4</button>
+        <button mat-fab (click)="onInputClick('wave-5')" color="accent">5</button>
+      </div>
+    </mat-card-content>
+  </mat-card>  
 </div>
+
