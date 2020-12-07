@@ -30,9 +30,10 @@ export class DraggableSprite extends CustomSpriteClass {
   private onDragMove() {
     if (this.dragging) {
       const newPosition = this.data.getLocalPosition(this.parent);
-      this.x = newPosition.x;
-      this.y = newPosition.y;
-      this.parent.emit('moving', this);
+      if ((newPosition.x <  400 && newPosition.x > -550) &&  (newPosition.y > -4 && newPosition.y <= 640)) {
+        this.position = newPosition;
+        this.parent.emit('moving', this);
+      }
     }
   }
 }

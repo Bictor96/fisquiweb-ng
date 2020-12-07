@@ -5,7 +5,7 @@ export class Protactor extends CustomSpriteClass {
   private data : any;
 
   constructor() {
-    super('assets/protractor.png', 100, 100);
+    super('assets/protractor.png', 500, 200);
     this.anchor.set(0.5, 0.5);
     this.interactive = true;
     this.buttonMode = true;
@@ -44,8 +44,8 @@ export class Protactor extends CustomSpriteClass {
   private onDragMove() {
     if (this.dragging) {
       const newPosition = this.data.getLocalPosition(this.parent);
-      this.x = newPosition.x;
-      this.y = newPosition.y;
+      if (newPosition.x <  600 &&  (newPosition.y > -4 && newPosition.y <= 426))
+        this.position = newPosition;
     }
   }
 

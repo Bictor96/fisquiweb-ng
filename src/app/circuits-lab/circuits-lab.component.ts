@@ -12,7 +12,7 @@ export class CircuitsLabComponent extends BaseLabComponent implements AfterViewI
   private animation : CircuitsAnimation;
 
   constructor(renderer: Renderer2, ngZone : NgZone) {
-    super(renderer, ngZone, 800, 640);
+    super(renderer, ngZone, 960, 640);
     this.animation = new CircuitsAnimation();
    }
 
