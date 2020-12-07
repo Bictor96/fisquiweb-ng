@@ -9,7 +9,7 @@ export class FrictionAnimation extends BaseAnimation {
   private calculationInterval : FrictionInterval;
 
   SCANNER_POINT : number = 500;
-  STOP_POINT : number = 980;
+  STOP_POINT : number = 760;
 
   constructor(frictionData : FrictionData) {
     super();
@@ -17,7 +17,7 @@ export class FrictionAnimation extends BaseAnimation {
   }
 
   setup() : void {
-    this.frictionObject = new FrictionObject('assets/ball.png', 30, this.getApp().screen.height / 2, this.frictionData);
+    this.frictionObject = new FrictionObject('assets/kinematic_ball.png', 30, this.getApp().screen.height / 2, this.frictionData);
     this.addToStage(this.frictionObject);
   }
 
@@ -33,6 +33,8 @@ export class FrictionAnimation extends BaseAnimation {
   }
 
   private createTicker() : void {
+    this.frictionData.appliedForce = 0;
+    this.frictionObject.resetForceLine();
     this.setTicker(this.getApp().ticker.add((delta) => {
       if (this.frictionObject.isAppliedForceEnough()) {
         this.movementAnimation(delta);

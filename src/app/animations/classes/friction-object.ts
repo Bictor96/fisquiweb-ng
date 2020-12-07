@@ -9,8 +9,10 @@ export class FrictionObject extends CustomSpriteClass {
 
   constructor(asset : string, x: number, y : number, frictionData : FrictionData ) {
     super(asset, x, y);
+    this.width = 60;
+    this.height = 60;
     this.frictionData = frictionData;
-    this.forceLine = new Line(0, 0, 0x000000, 20);
+    this.forceLine = new Line(125, 125, 0xdf7126, 18);
 
     this.addChild(this.forceLine);
   }
@@ -20,11 +22,15 @@ export class FrictionObject extends CustomSpriteClass {
   }
 
   incrementAppliedForce() : void {
-    this.frictionData.appliedForce += 0.01;
+    this.frictionData.appliedForce += 0.005;
   }
 
   incrementLine() : void {
-    this.forceLine.incrementX(this.frictionData.appliedForce * 10);
+    this.forceLine.incrementX(this.frictionData.appliedForce * 150);
+  }
+
+  resetForceLine() : void {
+    this.forceLine.draw(0, 0);
   }
 
   moveObject(delta : number) : void {
@@ -42,14 +48,8 @@ export class FrictionObject extends CustomSpriteClass {
   }
 
   setVelocityInGivenTime(timeInSeconds : number) : void {
-    console.log("Mass: " + this.frictionData.mass );
-    console.log("Time: " + timeInSeconds);
-    console.log("Acceleration: " + this.getAcceleration());
-    console.log("Applied Force: " + this.frictionData.appliedForce);
-    console.log("Static Force: " + this.frictionData.getStaticForce());
     this.frictionData.time = timeInSeconds;
     this.frictionData.velocity = (this.frictionData.velocity + this.getAcceleration() * timeInSeconds) / 10;
-    console.log("Velocidad " + this.frictionData.velocity);
   }
 
   private getAcceleration() : number {

@@ -24,9 +24,9 @@ export class KinematicLabComponent extends BaseLabComponent {
     renderer: Renderer2, 
     ngZone: NgZone,
     private timeLoop: TimeLoopService) {
-      super(renderer, ngZone);
+      super(renderer, ngZone, 720, 240);
       this.animation = new KinematicAnimation();
-      this.actualData = new KinematicData(1,1,1);
+      this.actualData = new KinematicData(0,0,0);
       this.actualTime = 0;
       this.timeLoop.setLoop(50, 30000);
   }

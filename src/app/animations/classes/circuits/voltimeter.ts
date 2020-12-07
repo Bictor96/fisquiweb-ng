@@ -3,6 +3,7 @@ import { CircuitData } from 'src/app/classes/circuits-data';
 import { BoardConnector } from './board-connector';
 import { CircuitComponent } from './circuit-component';
 import { ComponentText } from './component-text';
+import { ParallelResistance } from './parallel_resistance';
 import { Resistance } from './resistance';
 
 export class Voltimeter extends CircuitComponent {
@@ -42,6 +43,12 @@ export class Voltimeter extends CircuitComponent {
       let resistance = (<Resistance> connectedComponent).getResistance();
       this.label.text = data.getVoltage(resistance).toFixed(2);
     }
+
+    if (connectedComponent.constructor.name == ParallelResistance.name) {
+      let resistance = (<ParallelResistance> connectedComponent).getTotalResistance();
+      this.label.text = data.getVoltage(resistance).toFixed(2);
+    }
+
   }
 
   updateLabel(data : CircuitData) : void {
@@ -50,5 +57,20 @@ export class Voltimeter extends CircuitComponent {
       let resistance = (<Resistance> connectedComponent).getResistance();
       this.label.text = data.getVoltage(resistance).toFixed(2);
     }
+
+    if (connectedComponent.constructor.name == ParallelResistance.name) {
+      let resistance = (<ParallelResistance> connectedComponent).getTotalResistance();
+      this.label.text = data.getVoltage(resistance).toFixed(2);
+    }
+  }
+
+  onRemoved(circuitData = new CircuitData()) : void {
+    this.boardConnector = null;
+    this.parallelConnector = null;
+    this.resetLabel();
+  }
+
+  resetLabel() : void {
+    this.label.text = "0.0";
   }
 }

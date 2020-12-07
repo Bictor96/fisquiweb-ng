@@ -65,8 +65,8 @@ export class Calibre extends CustomSpriteClass{
   private onDragMove() {
     if (this.dragging) {
       const newPosition = this.data.getLocalPosition(this.parent);
-      this.x = newPosition.x;
-      this.y = newPosition.y;
+      if (newPosition.x <  450 &&  (newPosition.y > -4 && newPosition.y <= 426))
+        this.position = newPosition;
     }
   }
 

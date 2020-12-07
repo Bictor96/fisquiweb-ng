@@ -9,14 +9,15 @@ export class EnergyLines {
   private heatLine : EnergyLine;
 
   private INITIAL_Y :number
+  private TEXT_Y : number;
 
   constructor(animation : EnergyAnimation) {
     this.energyData = animation.getEnergyData();
     this.INITIAL_Y = animation.getInitialPoint();
 
-    this.potentialLine = new EnergyLine("Potencial", 40, this.INITIAL_Y);
-    this.kineticLine = new EnergyLine("Cinetica", 120, this.INITIAL_Y);
-    this.heatLine = new EnergyLine("Calor", 200, this.INITIAL_Y, -17);
+    this.potentialLine = new EnergyLine("Potencial", 40, this.INITIAL_Y, -30, 0x3a54da);
+    this.kineticLine = new EnergyLine("Cinetica", 160, this.INITIAL_Y, -30, 0x7a8ae7);
+    this.heatLine = new EnergyLine("Calor", 280, this.INITIAL_Y, -17, 0xa2acee);
 
     this.addToStage(animation);
   }
@@ -28,13 +29,13 @@ export class EnergyLines {
   }
 
   updatePotentialLine() : void {
-    this.potentialLine.draw(0, -(this.energyData.getPotentialEnergy()));
+    this.potentialLine.draw(0, -(this.energyData.getPotentialEnergy() * 1.2));
   }
 
   updateLines() : void {
-    this.potentialLine.draw(0, -(this.energyData.getPotentialEnergy()));
-    this.kineticLine.draw(0, -(this.energyData.getKinematicEnergy()));
-    this.heatLine.draw(0, (this.energyData.getHeat()));
+    this.potentialLine.draw(0, -(this.energyData.getPotentialEnergy() * 1.2));
+    this.kineticLine.draw(0, -(this.energyData.getKinematicEnergy() * 1.2));
+    this.heatLine.draw(0, (this.energyData.getHeat() * 1.2));
   }
   
   reset() : void {

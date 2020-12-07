@@ -7,8 +7,8 @@ export class CircuitData {
     this.resistance = 0;
   }
 
-  getIntensity() : number {
-    return this.totalVoltage / this.resistance;
+  getIntensity(resistance = this.resistance) : number {
+    return this.totalVoltage / resistance;
   }
 
   getVoltage(resistance : number) : number {

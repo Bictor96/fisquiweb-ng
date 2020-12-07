@@ -1,6 +1,7 @@
 import {BaseAnimation} from './base-animation';
-import { TilingSprite, Sprite, Graphics } from 'pixi.js';
+import { TilingSprite, Sprite, Graphics, Point } from 'pixi.js';
 import { PixiUtils } from '../utils/pixi-utils';
+import { CustomSpriteClass } from './classes/custom-sprite-class';
 
 export class DynamicAnimation extends BaseAnimation {
     private line : TilingSprite;
@@ -18,6 +19,7 @@ export class DynamicAnimation extends BaseAnimation {
         this.setupBall();
         this.setupPositiveForceLine();
         this.setupNegativeForceLine();
+        this.setupMidpoint();
     }
 
     animate() : void {
@@ -39,7 +41,8 @@ export class DynamicAnimation extends BaseAnimation {
         console.log("Positive Next Length: " + force * 10);
 
         this.positiveForceLine.clear();
-        this.positiveForceLine.lineStyle(6, 0x00FFFF);
+        this.positiveForceLine.lineStyle(18, 0xdf7126);
+        this.negativeForceLine.moveTo(20, 0);
         this.positiveForceLine.lineTo(force * 10, 0);
     }
 
@@ -47,7 +50,8 @@ export class DynamicAnimation extends BaseAnimation {
         console.log("Negative Next Length: " + -(force * 10));
 
         this.negativeForceLine.clear();
-        this.negativeForceLine.lineStyle(6, 0xff0000);
+        this.negativeForceLine.lineStyle(18, 0xdf7126);
+        this.negativeForceLine.moveTo(-20, 0);
         this.negativeForceLine.lineTo(-(force * 10), 0);
     }
 
@@ -66,23 +70,35 @@ export class DynamicAnimation extends BaseAnimation {
 
     private setupBall() : void {
         let position = { x: 100, y: this.getApp().screen.height / 2 };
-        this.ball = PixiUtils.setupSprite(this.getApp(), 'assets/ball.png', position)
+        this.ball = PixiUtils.setupSprite(this.getApp(), 'assets/kinematic_ball.png', position);
+        this.ball.width = 60;
+        this.ball.height = 60;
+
+    }
+
+    private setupMidpoint() {
+        let midPoint = new CustomSpriteClass("assets/ball.png", 0,0);
+        this.ball.addChild(midPoint);
+        midPoint.position = new Point(-30, -30);
     }
 
     private setupPositiveForceLine() : void { 
-        this.positiveForceLine = this.setupForceLine(0xff0000);
+        this.positiveForceLine = this.setupForceLine(0x3f3f74);
+        this.positiveForceLine.moveTo(20, 0);
         this.ball.addChild(this.positiveForceLine);
     }
 
     
     private setupNegativeForceLine() : void { 
-        this.negativeForceLine = this.setupForceLine(0xff0000);
+        this.negativeForceLine = this.setupForceLine(0x3f3f74);
+        this.negativeForceLine.clear();
+        this.negativeForceLine.moveTo(-20, 0);
         this.ball.addChild(this.negativeForceLine);
     }
 
     private setupForceLine(color : number) : Graphics {
         let line = new Graphics();
-        line.lineStyle(6, color);
+        line.lineStyle(24, color);
         return line;
     }
 

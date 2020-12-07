@@ -4,6 +4,8 @@ import { CircuitData } from 'src/app/classes/circuits-data';
 import { BoardConnector } from './board-connector';
 import { CircuitComponent } from './circuit-component';
 import { ComponentText } from './component-text';
+import { ParallelResistanceConnector } from './parallel-resistance-connector';
+import { ParallelResistance } from './parallel_resistance';
 
 export class Ammeter extends CircuitComponent {
   private label : Text;
@@ -20,10 +22,25 @@ export class Ammeter extends CircuitComponent {
   }
 
   setOnBoard(connector : BoardConnector) : void {
-    let position = connector.midPoint;;
+    let position = connector.midPoint;
     let newPos = new Point(position.x + 3, position.y + 55);
     this.position = newPos;
     this.boardConnector = connector;
+  }
+
+  setOnParallel(connector : ParallelResistanceConnector) : void {
+    let newPoint = new Point();
+    if (connector.TAG == 'bot') {
+      let position = connector.midPoint;
+      newPoint = new Point(position.x + 4, position.y + 55);
+      this.position = newPoint;
+    } else if (connector.TAG == 'top') {
+      let position = connector.midPoint;
+      newPoint = new Point(position.x + 4, position.y + 55);
+    }
+
+    this.position = newPoint;
+    this.parallelConnector = connector;
   }
 
   updateData(circuitData : CircuitData) : void {
@@ -34,14 +51,34 @@ export class Ammeter extends CircuitComponent {
     this.update(circuitData);
   }
 
+  resetLabel() : void {
+    this.label.text = "0.0";
+  }
+
+  onRemoved(circuitData = new CircuitData()) : void {
+    this.boardConnector = null;
+    this.parallelConnector = null;
+    this.resetLabel();
+  }
+
   private update(circuitData : CircuitData) : void {
-    console.log("Updating Ammeter");
+    if (this.parallelConnector != null) {
+      let resistanceComponent = this.parallelConnector.component
+      let totalResistance = resistanceComponent.parentResistance.getTotalResistance();
+      let voltage = circuitData.getVoltage(totalResistance);
+      let result = voltage / resistanceComponent.getResistance();
+      console.log("Voltage: " + voltage);
+      console.log("Resistance: " + resistanceComponent.getResistance());
+      console.log("Result: " + result);
+      this.label.text = result.toFixed(2);
+      return;
+    }
+
     let intensity = circuitData.getIntensity();
     console.log(intensity);
     if (isNaN(intensity)) {
       intensity = 0.0
     }
-    
     this.label.text = intensity.toFixed(2);
   }
 }

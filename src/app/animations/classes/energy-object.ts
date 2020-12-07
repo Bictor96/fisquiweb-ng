@@ -10,7 +10,9 @@ export class EnergyObject extends CustomSpriteClass {
   private TOP_Y : number;
 
   constructor(energyData : EnergyData, INITIAL_X, INITIAL_Y, TOP_Y) {
-    super('assets/ball.png', INITIAL_X, INITIAL_Y)
+    super('assets/kinematic_ball.png', INITIAL_X, INITIAL_Y)
+    this.width = 60;
+    this.height = 60;
     this.interactive = true;
     this.buttonMode = true;
 

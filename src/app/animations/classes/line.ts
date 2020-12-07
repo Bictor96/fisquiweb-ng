@@ -13,12 +13,10 @@ export class Line  extends Graphics {
     this.y = y;
     this.color = color;
     this.strokeWitdh = strokeWidth;
-
-    this.move(x, y)
   }
 
   incrementX(xIncrement : number) {
-    this.draw(this.x + xIncrement, 0);
+    this.draw(xIncrement, 0);
   }
 
   draw(xLength : number, yLength : number) : void {

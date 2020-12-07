@@ -30,7 +30,7 @@ export class FrictionLabComponent extends BaseLabComponent {
 
   constructor(renderer: Renderer2,  ngZone: NgZone) 
   {
-    super(renderer, ngZone);
+    super(renderer, ngZone, 840, 240);
     this.frictionData = new FrictionData();
     this.animation = new FrictionAnimation(this.frictionData);
   }

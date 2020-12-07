@@ -3,6 +3,7 @@ import * as PIXI from 'pixi.js'
 import { PixiUtils } from '../utils/pixi-utils';
 import {LabAnimation} from '../interfaces/lab-animation';
 import { BaseAnimation } from './base-animation';
+import { CustomSpriteClass } from './classes/custom-sprite-class';
 
 
 export class KinematicAnimation extends BaseAnimation {
@@ -19,11 +20,15 @@ export class KinematicAnimation extends BaseAnimation {
     console.log("Initing Animation");
     this.setupLine();
     this.setupBall();
+    this.getApp().renderer.backgroundColor = 0x303030;
   }
 
+
    private setupBall() : void {
-    let position = { x: 0, y: this.getApp().screen.height / 2 };
-    this.ball = PixiUtils.setupSprite(this.getApp(), 'assets/ball.png', position)
+    let position = { x: 50, y: this.getApp().screen.height / 2 };
+    this.ball = PixiUtils.setupSprite(this.getApp(), 'assets/kinematic_ball.png', position)
+    this.ball.width = 50;
+    this.ball.height = 50;
   }
 
   private setupLine() : void {
@@ -49,7 +54,7 @@ export class KinematicAnimation extends BaseAnimation {
   }
 
   reset() : void {
-    this.ball.x = 0;
+    this.ball.x = 50;
 
     setTimeout(() => {
       this.stop();

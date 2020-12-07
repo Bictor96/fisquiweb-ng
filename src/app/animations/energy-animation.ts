@@ -82,7 +82,7 @@ export class EnergyAnimation extends BaseAnimation {
 
 
   private setupBotline() : void {
-    const botLine = new Line(0, this.INITIAL_Y, 0xFF0000, 2);
+    const botLine = new Line(0, this.INITIAL_Y, 0x639bff, 2);
     botLine.incrementX(screen.width);
     this.addToStage(botLine)
   }

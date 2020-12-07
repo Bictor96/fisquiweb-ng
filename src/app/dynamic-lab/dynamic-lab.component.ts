@@ -12,6 +12,7 @@ import { DynamicOutputComponent } from './dynamic-output/dynamic-output.componen
   templateUrl: './dynamic-lab.component.html',
   styleUrls: ['./dynamic-lab.component.css']
 })
+
 export class DynamicLabComponent extends BaseLabComponent {
   private animation : DynamicAnimation;
   actualData : DynamicOutputData;
@@ -21,9 +22,9 @@ export class DynamicLabComponent extends BaseLabComponent {
 
   constructor(renderer: Renderer2,  ngZone: NgZone, private timeLoop: TimeLoopService) 
   {
-    super(renderer, ngZone);
+    super(renderer, ngZone, 720, 240);
     this.animation = new DynamicAnimation();
-    this.actualData = new DynamicOutputData(0, new DynamicInputData(1, 1, 1, 1, 1)); 
+    this.actualData = new DynamicOutputData(0, new DynamicInputData(0, 0, 0, 0, 0)); 
   }
   
   ngAfterViewInit() {

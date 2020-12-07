@@ -24,7 +24,7 @@ export class EnergyLabComponent extends BaseLabComponent {
 
   constructor(renderer : Renderer2, ngZone : NgZone) {
     super(renderer, ngZone, 720, 480); 
-    this.energyData = new EnergyData(0, 0, 0, 0);
+    this.energyData = new EnergyData(0, 0.3, 1, 0);
     this.animation = new EnergyAnimation(this.energyData);
   }
 

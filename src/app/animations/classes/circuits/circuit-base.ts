@@ -1,11 +1,9 @@
-import { Point, Text } from 'pixi.js';
+import { Point } from 'pixi.js';
 import { CircuitData } from 'src/app/classes/circuits-data';
 import { CustomSpriteClass } from '../custom-sprite-class';
-import { BoardConnector } from './board-connector';
 import BoardConnectors from './board-connectors';
 import { CircuitComponent } from './circuit-component';
 import { ComponentText } from './component-text';
-import { Resistance } from './resistance';
 
 export class CircuitBase extends CustomSpriteClass {
   private boardConnectors : BoardConnectors;
@@ -33,6 +31,7 @@ export class CircuitBase extends CustomSpriteClass {
     if (isSet) {
       this.components.push(component);
       console.log("Connected Components: " + this.components.length);
+      this.updateComponents();
     }
   }
 
@@ -63,6 +62,7 @@ export class CircuitBase extends CustomSpriteClass {
     this.parent.emit('component-removed', component);
     this.components = this.components.filter(c => c != component);
     console.log("Connected Components: " + this.components.length);
+    this.updateComponents();
   }
 
   private onResistanceUpdated(value : number) {
@@ -72,9 +72,18 @@ export class CircuitBase extends CustomSpriteClass {
   }
 
   private updateComponents() {
-    this.components.forEach((c) => {
-      console.log("Updating " + c.constructor.name);
-      c.updateLabel(this.circuitData);
-    });
+    console.log("Updating components");
+    if (!this.boardConnectors.allOcuppied() || this.components.length < 4) {
+      console.log("Not all occupied")
+      this.components.forEach((c) => {
+        c.resetLabel();
+      });
+    } else {
+      console.log("All occupied")
+      this.components.forEach((c) => {
+        console.log("Updating " + c.constructor.name);
+        c.updateLabel(this.circuitData);
+      });
+    }
   }
 }

@@ -1,8 +1,11 @@
 import { Point } from 'pixi.js';
 import { CircuitData } from 'src/app/classes/circuits-data';
+import { Ammeter } from './ammeter';
 import { BoardConnector } from './board-connector';
 import { CircuitBase } from './circuit-base';
 import { CircuitComponent } from './circuit-component';
+import { ParallelResistance } from './parallel_resistance';
+import { ShortWire } from './wire';
 
 export default class BoardConnectors {
   private topConnector : BoardConnector;
@@ -28,7 +31,6 @@ export default class BoardConnectors {
 
   setIfNearEnough(component : CircuitComponent) : boolean {
     if (this.topConnector.canConnect(component)) {
-      console.log("CAN CONNECT");
       this.setComponent(this.topConnector, component);
       return true;
     } else if (this.leftConnector.canConnect(component)) {
@@ -45,13 +47,28 @@ export default class BoardConnectors {
     }
   }
 
+  allOcuppied() : boolean {
+    return this.topConnector.occupied && this.bottomConnector.occupied && 
+      this.leftConnector.occupied && this.rightConnector.occupied;
+  }
+
   private setComponent(connector : BoardConnector, component : CircuitComponent) : void {
+    if (connector.hasParallelResistance() && this.isAllowedOnParallel(component) ) {
+      let resistance = <ParallelResistance>connector.getConnectedComponent();
+      resistance.onConnectingComponent(component, this.circuitData);
+      return;
+    }
+    
     connector.setConnectedComponent(component);
     component.onConnect(connector, this.circuitData);
-
     if (this.allConnectorsOccupied()) {
       console.log("All ocupied");
     }
+  }
+
+  private isAllowedOnParallel(component) : boolean {
+    let type = component.constructor.name;
+    return type == Ammeter.name || type == ShortWire.name
   }
 
   private allConnectorsOccupied() : boolean {
