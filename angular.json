@@ -63,7 +63,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "fisquiweb:build"
+            "browserTarget": "fisquiweb:build",
           },
           "configurations": {
             "production": {
