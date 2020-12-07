@@ -44,7 +44,7 @@ const auth = () => {
   }
 }
 
-app.post('api/authenticate', auth() , (req, res) => {
+app.post('/api/authenticate', auth() , (req, res) => {
   res.status(200).json({"statusCode" : 200 ,"user" : req.user});
 });
 
