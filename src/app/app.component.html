@@ -16,6 +16,7 @@
     <mat-divider [vertical]="true"></mat-divider>
     <li><a mat-button routerLink="/circuits-lab" routerLinkActive="active"> Circuitos </a></li>
     <mat-divider [vertical]="true"></mat-divider>
+    <mat-grid-tile><a *ngIf="isLogged()" (click)="logout()" mat-button> Cerrar Sesión </a></mat-grid-tile>
   </nav>
 </mat-toolbar>
 
