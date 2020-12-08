@@ -31,6 +31,8 @@ export class AuthService {
   }
 
   public logout() {
-    return this.http.get('/logout').toPromise();
+    return this.http.get('/logout', {
+      responseType:'text'
+    }).toPromise();
   }
 }
