@@ -2,12 +2,17 @@ li {
   list-style: none;
 }
 
-mat-toolbar  span{
+mat-toolbar  nav{
+  margin-left: 12em;
+}
+
+.app-title {
   font-size: 32px;
 }
 
-mat-toolbar  nav{
-  margin-left: 5em;
+.app-title a{
+  text-decoration: none;
+  color: white;
 }
 
 .nav-bar {

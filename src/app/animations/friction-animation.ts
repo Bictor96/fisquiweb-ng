@@ -77,6 +77,7 @@ export class FrictionAnimation extends BaseAnimation {
   private premovementAnimation() : void {
     this.frictionObject.incrementAppliedForce();
     this.frictionObject.incrementLine();
+    setTimeout(() => {}, 100);
   }
 
   private getRandomInt(max) : number {

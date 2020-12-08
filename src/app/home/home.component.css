@@ -1,0 +1,12 @@
+.home-grid {
+  margin:5em;
+}
+
+.home-grid a {
+  border:1px solid white;
+  width: 60%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}

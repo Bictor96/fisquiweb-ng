@@ -38,7 +38,8 @@ import { WaveToolsComponent } from './wave-lab/wave-tools/wave-tools.component';
 import { RefractionLabComponent } from './refraction-lab/refraction-lab.component';
 import { RefractionUiComponent } from './refraction-lab/refraction-ui/refraction-ui.component';
 import { CircuitsLabComponent } from './circuits-lab/circuits-lab.component';
-import { LoginComponent } from './login/login.component'; 
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component'; 
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { LoginComponent } from './login/login.component';
     RefractionUiComponent,
     CircuitsLabComponent,
     LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
