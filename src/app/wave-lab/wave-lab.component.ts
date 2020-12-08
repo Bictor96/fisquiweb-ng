@@ -6,7 +6,7 @@ import { WaveData } from '../classes/wave-data';
 @Component({
   selector: 'app-wave-lab',
   templateUrl: './wave-lab.component.html',
-  styleUrls: ['./wave-lab.component.css']
+  styleUrls: ['./wave-lab.component.scss']
 })
 
 /**

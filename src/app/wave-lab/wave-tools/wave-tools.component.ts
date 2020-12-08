@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'wave-tools',
   templateUrl: './wave-tools.component.html',
-  styleUrls: ['./wave-tools.component.css']
+  styleUrls: ['./wave-tools.component.scss']
 })
 
 export class WaveToolsComponent {

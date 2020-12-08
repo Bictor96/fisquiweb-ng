@@ -5,7 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 @Component({
   selector: 'dynamic-output',
   templateUrl: './dynamic-output.component.html',
-  styleUrls: ['./dynamic-output.component.css']
+  styleUrls: ['./dynamic-output.component.scss']
 })
 export class DynamicOutputComponent implements OnInit {
   @Input() data : DynamicOutputData;

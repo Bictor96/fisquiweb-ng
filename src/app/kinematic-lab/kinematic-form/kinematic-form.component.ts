@@ -6,7 +6,7 @@ import { TimeLoopService } from '../../time-loop.service';
 @Component({
   selector: 'kinematic-form',
   templateUrl: './kinematic-form.component.html',
-  styleUrls: ['./kinematic-form.component.css']
+  styleUrls: ['./kinematic-form.component.scss']
 })
 
 export class KinematicFormComponent {

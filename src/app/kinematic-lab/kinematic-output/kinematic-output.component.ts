@@ -6,7 +6,7 @@ import { KinematicOutputData } from '../../classes/kinematic-output-data';
 @Component({
   selector: 'kinematic-output',
   templateUrl: './kinematic-output.component.html',
-  styleUrls: ['./kinematic-output.component.css']
+  styleUrls: ['./kinematic-output.component.scss']
 })
 
 export class KinematicOutputComponent implements OnInit {

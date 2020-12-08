@@ -5,7 +5,7 @@ import { RefractionData } from 'src/app/classes/refraction-data';
 @Component({
   selector: 'refraction-ui',
   templateUrl: './refraction-ui.component.html',
-  styleUrls: ['./refraction-ui.component.css']
+  styleUrls: ['./refraction-ui.component.scss']
 })
 export class RefractionUiComponent implements OnInit {
   @Input("data") refractionData : RefractionData;

@@ -8,7 +8,7 @@ import { FrictionData } from '../classes/friction-data';
 @Component({
   selector: 'friction-lab',
   templateUrl: './friction-lab.component.html',
-  styleUrls: ['./friction-lab.component.css']
+  styleUrls: ['./friction-lab.component.scss']
 })
 
 /* 

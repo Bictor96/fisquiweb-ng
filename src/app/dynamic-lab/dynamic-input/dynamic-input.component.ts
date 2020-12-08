@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 @Component({
   selector: 'dynamic-input',
   templateUrl: './dynamic-input.component.html',
-  styleUrls: ['./dynamic-input.component.css']
+  styleUrls: ['./dynamic-input.component.scss']
 })
 
 export class DynamicInputComponent {

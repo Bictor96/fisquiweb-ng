@@ -6,7 +6,7 @@ import { EnergyData } from 'src/app/classes/energy-data';
 @Component({
   selector: 'energy-input',
   templateUrl: './energy-input.component.html',
-  styleUrls: ['./energy-input.component.css']
+  styleUrls: ['./energy-input.component.scss']
 })
 export class EnergyInputComponent implements OnInit {
   @Input("data") energyData : EnergyData;

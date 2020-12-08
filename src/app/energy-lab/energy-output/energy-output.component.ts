@@ -12,7 +12,7 @@ export interface Tile {
 @Component({
   selector: 'energy-output',
   templateUrl: './energy-output.component.html',
-  styleUrls: ['./energy-output.component.css']
+  styleUrls: ['./energy-output.component.scss']
 })
 
 export class EnergyOutputComponent implements OnInit {

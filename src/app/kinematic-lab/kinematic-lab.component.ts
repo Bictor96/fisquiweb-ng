@@ -10,7 +10,7 @@ import { BaseLabComponent } from '../base-component/base-lab';
 @Component({
   selector: 'kinematic-lab',
   templateUrl: './kinematic-lab.component.html',
-  styleUrls: ['./kinematic-lab.component.css']
+  styleUrls: ['./kinematic-lab.component.scss']
 })
 export class KinematicLabComponent extends BaseLabComponent {
   private animation : KinematicAnimation;

@@ -10,7 +10,7 @@ import { DynamicOutputComponent } from './dynamic-output/dynamic-output.componen
 @Component({
   selector: 'app-dynamic-lab',
   templateUrl: './dynamic-lab.component.html',
-  styleUrls: ['./dynamic-lab.component.css']
+  styleUrls: ['./dynamic-lab.component.scss']
 })
 
 export class DynamicLabComponent extends BaseLabComponent {

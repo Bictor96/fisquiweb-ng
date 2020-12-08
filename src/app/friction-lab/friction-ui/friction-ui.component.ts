@@ -8,7 +8,7 @@ import {FRICTION_VALUES} from '../../classes/friction-values'
 @Component({
   selector: 'friction-ui',
   templateUrl: './friction-ui.component.html',
-  styleUrls: ['./friction-ui.component.css']
+  styleUrls: ['./friction-ui.component.scss']
 })
 export class FrictionUiComponent implements OnInit {
   @Input() frictionData : FrictionData;

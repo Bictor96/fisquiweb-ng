@@ -5,7 +5,7 @@ import { BaseLabComponent } from '../base-component/base-lab';
 @Component({
   selector: 'app-circuits-lab',
   templateUrl: './circuits-lab.component.html',
-  styleUrls: ['./circuits-lab.component.css']
+  styleUrls: ['./circuits-lab.component.scss']
 })
 export class CircuitsLabComponent extends BaseLabComponent implements AfterViewInit {
   @ViewChild("Animation") animationDiv: ElementRef;

@@ -7,7 +7,7 @@ import { RefractionData } from '../classes/refraction-data';
 @Component({
   selector: 'refraction-lab',
   templateUrl: './refraction-lab.component.html',
-  styleUrls: ['./refraction-lab.component.css']
+  styleUrls: ['./refraction-lab.component.scss']
 })
 export class RefractionLabComponent extends BaseLabComponent implements AfterViewInit {
   @ViewChild("Animation") animationDiv: ElementRef;

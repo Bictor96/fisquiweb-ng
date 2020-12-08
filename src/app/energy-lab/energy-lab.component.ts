@@ -7,7 +7,7 @@ import { EnergyData } from '../classes/energy-data';
 @Component({
   selector: 'app-energy-lab',
   templateUrl: './energy-lab.component.html',
-  styleUrls: ['./energy-lab.component.css']
+  styleUrls: ['./energy-lab.component.scss']
 })
 
 /**

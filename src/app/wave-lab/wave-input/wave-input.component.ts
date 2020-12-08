@@ -4,7 +4,7 @@ import { WAVE_VALUES } from 'src/app/classes/wave-values';
 @Component({
   selector: 'wave-input',
   templateUrl: './wave-input.component.html',
-  styleUrls: ['./wave-input.component.css']
+  styleUrls: ['./wave-input.component.scss']
 })
 
 export class WaveInputComponent implements OnInit {
