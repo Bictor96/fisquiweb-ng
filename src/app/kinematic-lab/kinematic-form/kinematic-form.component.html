@@ -4,17 +4,17 @@
     <form [formGroup]="kinematicForm" (ngSubmbit)="onSubmit()">
       <mat-form-field class="kinematic-full-width">
         <mat-label>Posición Inicial: </mat-label>
-        <input formControlName="position" matInput type="number" placeholder="En m" value="0">
+        <input min=-50 max=200 formControlName="position" matInput type="number" placeholder="En m" value="0">
       </mat-form-field>
     
       <mat-form-field class="kinematic-full-width">
         <mat-label>Velocidad: </mat-label>
-        <input formControlName="velocity" matInput type="number" placeholder="En m/s" value="0">
+        <input min=-10 max=10 formControlName="velocity" matInput type="number" placeholder="En m/s" value="0">
       </mat-form-field>
     
       <mat-form-field class="kinematic-full-width">
         <mat-label>Aceleración: </mat-label>
-        <input formControlName="acceleration" matInput type="number" placeholder="En m/s2" value="0">
+        <input min=-50 max=50 formControlName="acceleration" matInput type="number" placeholder="En m/s2" value="0">
       </mat-form-field>
     </form>
   </mat-card-content>

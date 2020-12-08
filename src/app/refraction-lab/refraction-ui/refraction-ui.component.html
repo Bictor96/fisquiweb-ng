@@ -5,13 +5,13 @@
       <!-- Indice de Refraccion 1 -->
       <mat-form-field>
         <mat-label> N1: </mat-label>
-        <input class="refraction-input" matInput type="number" formControlName="n1" placeholder="" value="1.0">
+        <input min=0.5 max=2.5 step=0.1 class="refraction-input" matInput type="number" formControlName="n1" placeholder="" value="1.0">
       </mat-form-field>
 
       <!-- Indice de Refraccion 2 -->
       <mat-form-field>
         <mat-label> N2: </mat-label>
-        <input class="refraction-input" matInput type="number" formControlName="n2" placeholder="" value="1.5">
+        <input min=0.5 max=2.5 step=0.1 class="refraction-input" matInput type="number" formControlName="n2" placeholder="" value="1.5">
       </mat-form-field>
     </form>
   </mat-card-content>

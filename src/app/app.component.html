@@ -1,12 +1,22 @@
-<h1> Angular Fisquiweb</h1>
+<mat-toolbar>
+  <span>FisquiWeb</span>
+  <nav class="nav-bar">
+    <mat-divider [vertical]="true"></mat-divider>
+    <li><a mat-button routerLink="/kinematic-lab" routerLinkActive="active"> Cinématica </a></li>
+    <mat-divider [vertical]="true"></mat-divider>
+    <li><a mat-button routerLink="/dynamic-lab" routerLinkActive="active"> Dinámica </a></li>
+    <mat-divider [vertical]="true"></mat-divider>
+    <li><a mat-button routerLink="/friction-lab" routerLinkActive="active"> Rozamiento </a></li>
+    <mat-divider [vertical]="true"></mat-divider>
+    <li><a mat-button routerLink="/energy-lab" routerLinkActive="active"> Energía </a></li>
+    <mat-divider [vertical]="true"></mat-divider>
+    <li><a mat-button routerLink="/wave-lab" routerLinkActive="active"> Ondas </a></li>
+    <mat-divider [vertical]="true"></mat-divider>
+    <li><a mat-button routerLink="/refraction-lab" routerLinkActive="active"> Ondas 2 </a></li>
+    <mat-divider [vertical]="true"></mat-divider>
+    <li><a mat-button routerLink="/circuits-lab" routerLinkActive="active"> Circuitos </a></li>
+    <mat-divider [vertical]="true"></mat-divider>
+  </nav>
+</mat-toolbar>
 
-<nav class="nav-bar">
-  <li><a mat-button routerLink="/kinematic-lab" routerLinkActive="active"> Cinématica </a></li>
-  <li><a mat-button routerLink="/dynamic-lab" routerLinkActive="active"> Dinámica </a></li>
-  <li><a mat-button routerLink="/friction-lab" routerLinkActive="active"> Rozamiento </a></li>
-  <li><a mat-button routerLink="/energy-lab" routerLinkActive="active"> Energía </a></li>
-  <li><a mat-button routerLink="/wave-lab" routerLinkActive="active"> Ondas </a></li>
-  <li><a mat-button routerLink="/refraction-lab" routerLinkActive="active"> Ondas 2 </a></li>
-  <li><a mat-button routerLink="/circuits-lab" routerLinkActive="active"> Circuitos </a></li>
-</nav>
 <router-outlet></router-outlet>

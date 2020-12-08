@@ -5,27 +5,27 @@
 
         <mat-form-field class="dynamic-full-width">
           <mat-label> Masa: </mat-label>
-          <input formControlName="mass" matInput type="number" placeholder="En kg" value="0">
+          <input min=1.00 max=5.00 formControlName="mass" matInput type="number" placeholder="En kg" value="0">
         </mat-form-field>
 
         <mat-form-field class="dynamic-full-width">
             <mat-label> Posición: </mat-label>
-            <input formControlName="position" matInput type="number" placeholder="En kg" value="0">
+            <input min=-50 max=300 formControlName="position" matInput type="number" placeholder="En kg" value="0">
         </mat-form-field>
 
         <mat-form-field class="dynamic-full-width">
             <mat-label> Fuerza +: </mat-label>
-            <input [value]="value" formControlName="positiveForce" matInput type="number" placeholder="En kg" value="0">
+            <input min=0 max=10 [value]="value" formControlName="positiveForce" matInput type="number" placeholder="En kg" value="0">
         </mat-form-field>
 
         <mat-form-field class="dynamic-full-width">
             <mat-label> Force - : </mat-label>
-            <input (change)="onNegativeForceChange" formControlName="negativeForce" matInput type="number" placeholder="En kg" value="0">
+            <input min=0 max=10 (change)="onNegativeForceChange" formControlName="negativeForce" matInput type="number" placeholder="En kg" value="0">
         </mat-form-field>
 
         <mat-form-field class="dynamic-full-width">
             <mat-label> Velocidad Inicial: </mat-label>
-            <input formControlName="initialVelocity" matInput type="number" placeholder="En kg" value="0">
+            <input min=-50 max=50 formControlName="initialVelocity" matInput type="number" placeholder="En kg" value="0">
         </mat-form-field>
         </form>
     </mat-card-content>

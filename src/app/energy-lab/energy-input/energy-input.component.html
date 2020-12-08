@@ -6,17 +6,17 @@
         <!-- Rozamiento -->
         <mat-form-field>
           <mat-label> Rozamiento: </mat-label>
-          <input matInput type="number" formControlName="friction" placeholder="En kg" value="0">
+          <input min=0 max=0.9 step=0.1 matInput type="number" formControlName="friction" placeholder="En kg" value="0">
         </mat-form-field>
         <!-- Masa -->
         <mat-form-field>
           <mat-label> Masa: </mat-label>
-          <input matInput type="number" formControlName="mass" placeholder="En kg" value="0">
+          <input min=0.1 max=1.0 matInput type="number" formControlName="mass" placeholder="En kg" value="0">
         </mat-form-field>
         <!-- Velocidad Inicial -->
         <mat-form-field>
           <mat-label> Velocidad Inicial: </mat-label>
-          <input matInput type="number" formControlName="initialVelocity" placeholder="En kg" value="0">
+          <input min=1 max=10 matInput type="number" formControlName="initialVelocity" placeholder="En kg" value="0">
         </mat-form-field>
       </form>
     </mat-card-content>
