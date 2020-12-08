@@ -44,6 +44,7 @@ const auth = () => {
   }
 }
 
+
 app.post('/api/authenticate', auth() , (req, res) => {
   res.status(200).json({"statusCode" : 200 ,"user" : req.user});
 });
@@ -56,6 +57,10 @@ const isLoggedIn = (req, res, next) => {
   }
   return res.status(400).json({"statusCode" : 400, "message" : "not authenticated"})
 }
+
+app.get("*", (req, res) => {
+  res.sendFile(distDir);
+}); 
 
 app.get('/getData', isLoggedIn, (req, res) => {
   res.json("data is")
