@@ -7,6 +7,7 @@
     <mat-grid-tile><a mat-button routerLink="/wave-lab" routerLinkActive="active"> Ondas </a></mat-grid-tile>
     <mat-grid-tile><a mat-button routerLink="/refraction-lab" routerLinkActive="active"> Ondas 2 </a></mat-grid-tile>
     <mat-grid-tile><a mat-button routerLink="/circuits-lab" routerLinkActive="active"> Circuitos </a></mat-grid-tile>
+    <mat-grid-tile><a *ngIf="isLogged()" mat-button> Cerrar Sesión </a></mat-grid-tile>
   </mat-grid-list>
 </div>
 

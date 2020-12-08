@@ -18,11 +18,19 @@ export class AuthService {
     return false;
   }
 
+  public resetUserInfo() : void {
+    localStorage.removeItem('userInfo');
+  }
+
   public setUserInfo(user){
     localStorage.setItem('userInfo', JSON.stringify(user));
   }
 
   public validate(email, password) {
     return this.http.post('/api/authenticate', {'username' : email, 'password' : password}).toPromise()
+  }
+
+  public logout() {
+    return this.http.get('/logout').toPromise();
   }
 }

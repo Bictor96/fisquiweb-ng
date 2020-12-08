@@ -26,8 +26,8 @@ export class LoginComponent implements OnInit {
     console.log("Login")
     this.authService.validate(this.loginForm.value.user, this.loginForm.value.password)
     .then((response) => {
-      this.authService.setUserInfo({'user' : response['user']});
-      this.router.navigate(['circuits-lab']);
+      this.authService.setUserInfo({'user' : response['user']})
+      this.router.navigate(['settings']);
     });
   }
 

@@ -62,9 +62,18 @@ app.get("*", (req, res) => {
   res.sendFile(distDir);
 }); 
 
+app.get("/settings", isLoggedIn,  (req, res) => {
+  res.sendFile(distDir);
+}); 
+
 app.get('/getData', isLoggedIn, (req, res) => {
   res.json("data is")
 })
+
+app.get('/logout', function(req, res) {
+  req.logout();
+  res.redirect('/');
+});
 
 
 var server = app.listen(process.env.PORT || 8080, function () {
