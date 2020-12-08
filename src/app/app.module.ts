@@ -39,7 +39,8 @@ import { RefractionLabComponent } from './refraction-lab/refraction-lab.componen
 import { RefractionUiComponent } from './refraction-lab/refraction-ui/refraction-ui.component';
 import { CircuitsLabComponent } from './circuits-lab/circuits-lab.component';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component'; 
+import { HomeComponent } from './home/home.component';
+import { SettingsComponent } from './settings/settings.component'; 
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { HomeComponent } from './home/home.component';
     CircuitsLabComponent,
     LoginComponent,
     HomeComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,

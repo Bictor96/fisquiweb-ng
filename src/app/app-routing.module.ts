@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { KinematicLabComponent } from './kinematic-lab/kinematic-lab.component';
 import { LoginComponent } from './login/login.component';
 import { RefractionLabComponent } from './refraction-lab/refraction-lab.component';
+import { SettingsComponent } from './settings/settings.component';
 import { WaveLabComponent } from './wave-lab/wave-lab.component';
 
 const routes: Routes = [
@@ -19,8 +20,9 @@ const routes: Routes = [
   {path: 'energy-lab', component : EnergyLabComponent},
   {path: 'wave-lab', component : WaveLabComponent},
   {path: 'refraction-lab', component : RefractionLabComponent},
-  {path: 'circuits-lab', component : CircuitsLabComponent, canActivate: [AuthGuardService]},
+  {path: 'circuits-lab', component : CircuitsLabComponent},
   {path: 'login', component : LoginComponent},
+  {path: 'settings', component : SettingsComponent, canActivate: [AuthGuardService]},
 ];
 
 @NgModule({
