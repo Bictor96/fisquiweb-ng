@@ -1,3 +1,4 @@
+import { JsonPipe } from '@angular/common';
 import { Component, NgModule, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { cpuUsage } from 'process';
@@ -23,17 +24,43 @@ export class SettingsComponent implements OnInit {
     private router : Router) { }
 
   ngOnInit(): void {
-    this.labs = this.labSettings.getLabs();
+    this.labSettings.getLabs().subscribe((labs) => {
+      console.log("Loaded labs in app component");
+      this.labs = labs;
+    });
   }
 
   toggleVisibility(labTAG : string) {
     console.log("Toggling VIS " + labTAG);
-    this.labSettings.toggleVisibility.emit(labTAG);
-    this.labSettings.toggleLabVisibility(labTAG);
+    this.labs.forEach((lab) => {
+      if (lab.path == labTAG) {
+        console.log("Modifying Visibility of " + labTAG);
+        lab.isVisible = !lab.isVisible;
+      }
+    });
   }
 
   changeName(labTAG : string) {
-    
+    this.labs.forEach((lab) => {
+      if (lab.path == labTAG) {
+        console.log("Modifying Name of " + labTAG);
+        lab.isVisible = !lab.isVisible;
+      }
+    });
+  }
+
+  onChange(event : any, labTAG : string) {
+    console.log("Cambio en  " + event.target.value);
+    this.labs.forEach((lab) => {
+      if (lab.path == labTAG) {
+        console.log("Modifying Name of " + labTAG + " to " + event.target.value);
+        lab.label = event.target.value
+      }
+    });
+  }
+
+  save() : void {
+    this.labSettings.saveLabs();
   }
 
   logout() : void {

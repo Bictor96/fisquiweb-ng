@@ -1,9 +1,12 @@
 const express = require('express');
+const morgan = require('morgan');
 const session = require('express-session');
 const app = new express();
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const LocalStrategy = require('passport-local').Strategy;
+
+var LABS = require('./labs.json');
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
@@ -27,6 +30,7 @@ app.use(session({ secret: 'anything', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json());
+app.use(morgan('tiny'));
 
 // Creacion del link al directio de buildeo de Angular
 var distDir = __dirname + "/dist/fisquiweb/";
@@ -62,6 +66,27 @@ app.get("*", (req, res) => {
   res.sendFile(distDir);
 }); 
 
+const updateLab = (res, updatedLab) => {
+
+
+}
+
+app.post("/api/labs/update", (req, res) => {
+  if (req.body.lab != null) {
+    const newLab = req.body.lab;
+    const labIndex = LABS.findIndex(lab => lab.path === newLab.path);
+    LABS[labIndex] = newLab;
+
+    res.status(200).json({"statusCode": 200});
+  } else{
+    res.status(400).json({"statusCode": 400, "message" : "Lab not found"});
+  }
+});
+
+app.post("/api/labs", (req, res) => {
+  res.status(200).json({"statusCode": 200, "labs": LABS});
+});
+
 app.get("/settings", isLoggedIn,  (req, res) => {
   res.sendFile(distDir);
 }); 
@@ -79,4 +104,5 @@ app.get('/logout', function(req, res) {
 var server = app.listen(process.env.PORT || 8080, function () {
   var port = server.address().port;
   console.log("App now running on port", port);
+  console.log("Loaded LABS: " + LABS.length);
 });

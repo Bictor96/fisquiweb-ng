@@ -12,6 +12,9 @@ export class HomeComponent implements OnInit {
   constructor(private labSettings : LabSettingsService) { }
 
   ngOnInit(): void {
-    this.labs = this.labSettings.getLabs();
+    this.labSettings.getLabs().subscribe((labs) => {
+      console.log("Loaded labs in app component");
+      this.labs = labs;
+    });
   }
 }

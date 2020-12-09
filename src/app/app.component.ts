@@ -19,7 +19,10 @@ export class AppComponent implements OnInit {
     private router : Router) {}
 
   ngOnInit() {
-    this.labs = this.labSettings.getLabs();
+    this.labSettings.getLabs().subscribe((labs) => {
+      console.log("Loaded labs in app component");
+      this.labs = labs;
+    });
   }
 
   isLogged() : Boolean {

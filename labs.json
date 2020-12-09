@@ -1,0 +1,9 @@
+[
+  {"path": "kinematic-lab", "label": "Cinemática", "isVisible": true},
+  {"path": "dynamic-lab", "label": "Dinámica", "isVisible": true},
+  {"path": "friction-lab", "label": "Rozamiento", "isVisible": true},
+  {"path": "energy-lab", "label": "Energía", "isVisible": true},
+  {"path": "wave-lab", "label": "Ondas", "isVisible": true},
+  {"path": "refraction-lab", "label": "Refracción", "isVisible": true},
+  {"path": "circuits-lab", "label": "Circuitos", "isVisible": true}
+]
