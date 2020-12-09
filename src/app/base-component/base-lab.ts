@@ -1,5 +1,6 @@
 import { Component, Renderer2, NgZone, AfterViewInit, OnInit, ViewChild, ElementRef, Inject} from "@angular/core";
 import * as PIXI from 'pixi.js';
+import { LabSettingsService } from '../lab-settings.service';
 
 @Component({
   template: ''
@@ -9,11 +10,20 @@ export class BaseLabComponent implements OnInit, AfterViewInit {
   private app : PIXI.Application;
   private width : number;
   private height : number;
+  private isVisible = true;
+  private TAG : string;
 
-  constructor(private renderer: Renderer2, private ngZone : NgZone, @Inject(Number) width: number = 1080, @Inject(Number) height = 240) {
+  constructor(
+    private renderer: Renderer2, 
+    private ngZone : NgZone, 
+    @Inject(String) TAG : String = '',
+    @Inject(Number) width: number = 1080, 
+    @Inject(Number) height = 240) {
     this.width = width;
     this.height = height;
   }
+
+  getTag() : String {return this.TAG};
 
   ngOnInit(): void {
     this.init();

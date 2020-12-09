@@ -3,6 +3,7 @@ import {NgZone, Renderer2} from '@angular/core';
 import { FrictionAnimation } from '../animations/friction-animation';
 import { BaseLabComponent } from '../base-component/base-lab';
 import { FrictionData } from '../classes/friction-data';
+import { LabSettingsService } from '../lab-settings.service';
 
 
 @Component({
@@ -28,9 +29,9 @@ export class FrictionLabComponent extends BaseLabComponent {
 
   @ViewChild("Animation") animationDiv: ElementRef;
 
-  constructor(renderer: Renderer2,  ngZone: NgZone) 
+  constructor(private labSettings : LabSettingsService, renderer: Renderer2,  ngZone: NgZone) 
   {
-    super(renderer, ngZone, 840, 240);
+    super(renderer, ngZone, 'friction-lab', 840, 240);
     this.frictionData = new FrictionData();
     this.animation = new FrictionAnimation(this.frictionData);
   }

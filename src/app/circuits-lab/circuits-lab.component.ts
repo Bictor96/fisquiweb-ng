@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, NgZone, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { CircuitsAnimation } from '../animations/classes/circuits/circuits-animation';
 import { BaseLabComponent } from '../base-component/base-lab';
+import { LabSettingsService } from '../lab-settings.service';
 
 @Component({
   selector: 'app-circuits-lab',
@@ -11,8 +12,8 @@ export class CircuitsLabComponent extends BaseLabComponent implements AfterViewI
   @ViewChild("Animation") animationDiv: ElementRef;
   private animation : CircuitsAnimation;
 
-  constructor(renderer: Renderer2, ngZone : NgZone) {
-    super(renderer, ngZone, 960, 640);
+  constructor(private labSettings: LabSettingsService, renderer: Renderer2, ngZone : NgZone) {
+    super(renderer, ngZone, 'circuits-lab', 960, 640);
     this.animation = new CircuitsAnimation();
    }
 

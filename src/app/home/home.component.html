@@ -1,12 +1,8 @@
 <div class="home-grid">
   <mat-grid-list cols="4" rowHeight="2:1">
-    <mat-grid-tile><a mat-button routerLink="/kinematic-lab" routerLinkActive="active"> Cinématica </a></mat-grid-tile>
-    <mat-grid-tile><a mat-button routerLink="/dynamic-lab" routerLinkActive="active"> Dinámica </a></mat-grid-tile>
-    <mat-grid-tile><a mat-button routerLink="/friction-lab" routerLinkActive="active"> Rozamiento </a></mat-grid-tile>
-    <mat-grid-tile><a mat-button routerLink="/energy-lab" routerLinkActive="active"> Energía </a></mat-grid-tile>
-    <mat-grid-tile><a mat-button routerLink="/wave-lab" routerLinkActive="active"> Ondas </a></mat-grid-tile>
-    <mat-grid-tile><a mat-button routerLink="/refraction-lab" routerLinkActive="active"> Ondas 2 </a></mat-grid-tile>
-    <mat-grid-tile><a mat-button routerLink="/circuits-lab" routerLinkActive="active"> Circuitos </a></mat-grid-tile>
+    <mat-grid-tile *ngFor="let lab of labs">
+      <a mat-button routerLink="/kinematic-lab" routerLinkActive="active"> {{lab.label}} </a>
+    </mat-grid-tile>
   </mat-grid-list>
 </div>
 

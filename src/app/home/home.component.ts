@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LabSettingsService } from '../lab-settings.service';
+import { Lab } from '../labs';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  labs : Array<Lab>;
+  constructor(private labSettings : LabSettingsService) { }
 
   ngOnInit(): void {
+    this.labs = this.labSettings.getLabs();
   }
-
 }

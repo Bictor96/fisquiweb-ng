@@ -14,6 +14,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatMenuModule} from '@angular/material/menu'; 
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field'; 
@@ -40,7 +41,10 @@ import { RefractionUiComponent } from './refraction-lab/refraction-ui/refraction
 import { CircuitsLabComponent } from './circuits-lab/circuits-lab.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { SettingsComponent } from './settings/settings.component'; 
+import { SettingsComponent } from './settings/settings.component';
+import { ThemePicker} from './themepicker/themepicker.component'; 
+import { ThemeStorage } from './themepicker/themestorage/theme-storage';
+import { StyleManager } from './stylemanager';
 
 @NgModule({
   declarations: [
@@ -65,6 +69,7 @@ import { SettingsComponent } from './settings/settings.component';
     LoginComponent,
     HomeComponent,
     SettingsComponent,
+    ThemePicker
   ],
   imports: [
     BrowserModule,
@@ -76,6 +81,7 @@ import { SettingsComponent } from './settings/settings.component';
     MatTableModule,
     MatDividerModule,
     MatGridListModule,
+    MatMenuModule,
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
@@ -87,7 +93,7 @@ import { SettingsComponent } from './settings/settings.component';
     MatInputModule,
     MatButtonToggleModule
   ],
-  providers: [],
+  providers: [StyleManager, ThemeStorage],
   bootstrap: [AppComponent]
 })
 

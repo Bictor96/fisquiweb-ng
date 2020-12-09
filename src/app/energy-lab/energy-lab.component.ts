@@ -3,6 +3,7 @@ import { BaseLabComponent } from '../base-component/base-lab';
 import { Renderer2, NgZone, ViewChild, ElementRef } from "@angular/core";
 import { EnergyAnimation } from '../animations/energy-animation';
 import { EnergyData } from '../classes/energy-data';
+import { LabSettingsService } from '../lab-settings.service';
 
 @Component({
   selector: 'app-energy-lab',
@@ -22,8 +23,8 @@ export class EnergyLabComponent extends BaseLabComponent {
   private animation : EnergyAnimation;
   energyData : EnergyData;
 
-  constructor(renderer : Renderer2, ngZone : NgZone) {
-    super(renderer, ngZone, 720, 480); 
+  constructor(private labSettings : LabSettingsService,  renderer : Renderer2, ngZone : NgZone) {
+    super( renderer, ngZone, 'energy-lab', 720, 480); 
     this.energyData = new EnergyData(0, 0.3, 1, 0);
     this.animation = new EnergyAnimation(this.energyData);
   }

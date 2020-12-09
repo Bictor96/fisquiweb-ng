@@ -1,2 +1,18 @@
 <p>settings works!</p>
-<button (click)="logout()"> Logout </button>
+<mat-list>
+  <mat-list-item *ngFor="let lab of labs"> 
+    <span> {{lab.label}} </span> 
+    <button mat-raised-button color="primary" (click)="toggleVisibility(lab.path)"> Visibilidad </button>
+    <button mat-raised-button color="accent" (click)="changeName(lab.path)"> Nombre </button> 
+  </mat-list-item>
+</mat-list>
+
+
+<mat-card class="theme-picker-card">
+  <mat-card-title> Selector de Tema: </mat-card-title>
+  <mat-card-content>
+    <theme-picker></theme-picker>
+  </mat-card-content>
+</mat-card>
+
+<button mat-raised-button color="primary" (click)="logout()"> Logout </button>

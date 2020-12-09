@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgZone, Renderer2 } from '@angular/core';
 import { KinematicAnimation } from '../animations/kinematic-animation';
 import { KinematicData } from '../classes/kinematic-data';
@@ -6,6 +6,7 @@ import { TimeLoopService } from '../time-loop.service';
 import { KinematicOutputData } from '../classes/kinematic-output-data';
 import { KinematicOutputComponent } from './kinematic-output/kinematic-output.component';
 import { BaseLabComponent } from '../base-component/base-lab';
+import { LabSettingsService } from '../lab-settings.service';
 
 @Component({
   selector: 'kinematic-lab',
@@ -23,8 +24,9 @@ export class KinematicLabComponent extends BaseLabComponent {
   constructor(
     renderer: Renderer2, 
     ngZone: NgZone,
+    private labSettings : LabSettingsService,
     private timeLoop: TimeLoopService) {
-      super(renderer, ngZone, 720, 240);
+      super(renderer, ngZone, 'kinematic-lab', 720, 240);
       this.animation = new KinematicAnimation();
       this.actualData = new KinematicData(0,0,0);
       this.actualTime = 0;

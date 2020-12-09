@@ -3,6 +3,7 @@ import { timingSafeEqual } from 'crypto';
 import { RefractionAnimation } from '../animations/refraction-animation';
 import { BaseLabComponent } from '../base-component/base-lab';
 import { RefractionData } from '../classes/refraction-data';
+import { LabSettingsService } from '../lab-settings.service';
 
 @Component({
   selector: 'refraction-lab',
@@ -14,11 +15,10 @@ export class RefractionLabComponent extends BaseLabComponent implements AfterVie
   private animation : RefractionAnimation;
   refractionData : RefractionData;
 
-  constructor(renderer : Renderer2, ngZone : NgZone) {
-    super(renderer, ngZone, 720, 480);
+  constructor(private labSettings : LabSettingsService, renderer : Renderer2, ngZone : NgZone) {
+    super(renderer, ngZone,  'refraction-lab', 720, 480);
     this.refractionData = new RefractionData();
     this.animation = new RefractionAnimation(this.refractionData);
-
    }
 
   ngAfterViewInit() {

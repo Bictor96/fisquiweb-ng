@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'refraction-lab', component : RefractionLabComponent},
   {path: 'circuits-lab', component : CircuitsLabComponent},
   {path: 'login', component : LoginComponent},
-  {path: 'settings', component : SettingsComponent, canActivate: [AuthGuardService]},
+  {path: 'settings', component : SettingsComponent},
 ];
 
 @NgModule({

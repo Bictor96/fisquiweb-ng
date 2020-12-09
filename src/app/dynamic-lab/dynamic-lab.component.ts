@@ -6,6 +6,7 @@ import {DynamicInputData} from '../classes/dynamic-input-data';
 import { TimeLoopService } from '../time-loop.service';
 import { DynamicOutputData } from '../classes/dynamic-output-data';
 import { DynamicOutputComponent } from './dynamic-output/dynamic-output.component';
+import { LabSettingsService } from '../lab-settings.service';
 
 @Component({
   selector: 'app-dynamic-lab',
@@ -20,9 +21,9 @@ export class DynamicLabComponent extends BaseLabComponent {
   @ViewChild("Animation") animationDiv: ElementRef;
   @ViewChild("DynamicOutput") dynamicOutput : DynamicOutputComponent;
 
-  constructor(renderer: Renderer2,  ngZone: NgZone, private timeLoop: TimeLoopService) 
+  constructor(private labSettings : LabSettingsService, renderer: Renderer2,  ngZone: NgZone, private timeLoop: TimeLoopService) 
   {
-    super(renderer, ngZone, 720, 240);
+    super(renderer, ngZone, 'dynamic-lab', 720, 240);
     this.animation = new DynamicAnimation();
     this.actualData = new DynamicOutputData(0, new DynamicInputData(0, 0, 0, 0, 0)); 
   }

@@ -2,6 +2,7 @@ import { Component, ElementRef, NgZone, OnInit, Renderer2, ViewChild } from '@an
 import { WaveAnimation } from '../animations/wave-animation';
 import { BaseLabComponent } from '../base-component/base-lab';
 import { WaveData } from '../classes/wave-data';
+import { LabSettingsService } from '../lab-settings.service';
 
 @Component({
   selector: 'app-wave-lab',
@@ -11,9 +12,7 @@ import { WaveData } from '../classes/wave-data';
 
 /**
  * TODO:
- * - [] Animacion : Herramienta para medir las ondas
  * - [] Animacion : Cuadricula
- * - [] Lab : Escala cuadricula en cms.
  */
 
 export class WaveLabComponent extends BaseLabComponent {
@@ -21,10 +20,17 @@ export class WaveLabComponent extends BaseLabComponent {
   private animation : WaveAnimation;
   private waveData : WaveData;
 
-  constructor(renderer: Renderer2, ngZone : NgZone) {
-    super(renderer, ngZone, 720, 480);
+  constructor(private labSettings : LabSettingsService, renderer: Renderer2, ngZone : NgZone) {
+    super(renderer, ngZone, 'wave-lab', 720, 480);
     this.waveData = new WaveData(10, 50);
     this.animation = new WaveAnimation(this.waveData);
+    this.labSettings.toggleVisibility.subscribe((lab) => {
+      console.log("Toggling visilbity for " + lab);
+      console.log("Lab + " + this.getTag())
+      if (lab == this.getTag()) {
+        console.log("Its here");
+      } 
+    });
    }
 
    ngAfterViewInit() {

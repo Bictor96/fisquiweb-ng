@@ -1,21 +1,13 @@
 <mat-toolbar>
   <span class="app-title"><a routerLink="/" >FisquiWeb</a></span>
   <nav class="nav-bar">
-    <mat-divider [vertical]="true"></mat-divider>
-    <li><a mat-button routerLink="/kinematic-lab" routerLinkActive="active"> Cinématica </a></li>
-    <mat-divider [vertical]="true"></mat-divider>
-    <li><a mat-button routerLink="/dynamic-lab" routerLinkActive="active"> Dinámica </a></li>
-    <mat-divider [vertical]="true"></mat-divider>
-    <li><a mat-button routerLink="/friction-lab" routerLinkActive="active"> Rozamiento </a></li>
-    <mat-divider [vertical]="true"></mat-divider>
-    <li><a mat-button routerLink="/energy-lab" routerLinkActive="active"> Energía </a></li>
-    <mat-divider [vertical]="true"></mat-divider>
-    <li><a mat-button routerLink="/wave-lab" routerLinkActive="active"> Ondas </a></li>
-    <mat-divider [vertical]="true"></mat-divider>
-    <li><a mat-button routerLink="/refraction-lab" routerLinkActive="active"> Ondas 2 </a></li>
-    <mat-divider [vertical]="true"></mat-divider>
-    <li><a mat-button routerLink="/circuits-lab" routerLinkActive="active"> Circuitos </a></li>
-    <mat-divider [vertical]="true"></mat-divider>
+    <div *ngFor="let lab of labs">
+      <li *ngIf="lab.isVisible">      
+        <mat-divider [vertical]="true"></mat-divider>
+        <a mat-button routerLink="/{{lab.path}}" routerLinkActive="active"> {{lab.label}} </a>
+        <mat-divider [vertical]="true"></mat-divider>
+      </li>
+    </div>
     <li><a *ngIf="isLogged()" (click)="logout()" mat-button> Cerrar Sesión </a></li>
   </nav>
 </mat-toolbar>
