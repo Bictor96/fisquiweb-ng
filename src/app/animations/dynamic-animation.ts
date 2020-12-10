@@ -43,7 +43,7 @@ export class DynamicAnimation extends BaseAnimation {
         this.positiveForceLine.clear();
         this.positiveForceLine.lineStyle(18, 0xdf7126);
         this.negativeForceLine.moveTo(20, 0);
-        this.positiveForceLine.lineTo(force * 10, 0);
+        this.positiveForceLine.lineTo(force * 20, 0);
     }
 
     updateNegativeForceLine(force : number) {
@@ -52,7 +52,7 @@ export class DynamicAnimation extends BaseAnimation {
         this.negativeForceLine.clear();
         this.negativeForceLine.lineStyle(18, 0xdf7126);
         this.negativeForceLine.moveTo(-20, 0);
-        this.negativeForceLine.lineTo(-(force * 10), 0);
+        this.negativeForceLine.lineTo(-(force * 20), 0);
     }
 
     reset() : void {

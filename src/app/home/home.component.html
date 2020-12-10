@@ -1,8 +1,8 @@
 <div class="home-grid">
-  <mat-grid-list cols="4" rowHeight="2:1">
+  <mat-grid-list cols="3" rowHeight="2:1">
     <div *ngFor="let lab of labs">
       <mat-grid-tile *ngIf="lab.isVisible">
-        <a mat-button routerLink="/kinematic-lab" routerLinkActive="active"> {{lab.label}} </a>
+        <button mat-stroked-button color="accent" routerLink="/kinematic-lab" routerLinkActive="active"> {{lab.label.toUpperCase()}} </button>
       </mat-grid-tile>
     </div>
   </mat-grid-list>

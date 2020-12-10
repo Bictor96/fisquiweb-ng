@@ -31,7 +31,11 @@ export class BaseLabComponent implements OnInit, AfterViewInit {
 
   init() {
     this.ngZone.runOutsideAngular(() => {
-      this.app = new PIXI.Application({width: this.width, height: this.height, backgroundColor: 0x303030, antialias: true});
+      this.app = new PIXI.Application({
+        width: this.width, height: 
+        this.height, 
+        backgroundColor: 0x303030, 
+        antialias: true});
     });
   }
 

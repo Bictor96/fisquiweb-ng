@@ -7,10 +7,11 @@ const bodyParser = require('body-parser');
 const LocalStrategy = require('passport-local').Strategy;
 
 var LABS = require('./labs.json');
+const USER = require('./user.json')
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    if(username === "admin" && password === "admin"){
+    if(username === USER["username"] && password === USER["password"]){
       return done(null, username);
     } else {
       return done("unauthorized access", false);

@@ -29,13 +29,13 @@ export class EnergyLines {
   }
 
   updatePotentialLine() : void {
-    this.potentialLine.draw(0, -(this.energyData.getPotentialEnergy() * 1.2));
+    this.potentialLine.draw(0, -(this.energyData.getPotentialEnergy() * 1.5));
   }
 
   updateLines() : void {
-    this.potentialLine.draw(0, -(this.energyData.getPotentialEnergy() * 1.2));
-    this.kineticLine.draw(0, -(this.energyData.getKinematicEnergy() * 1.2));
-    this.heatLine.draw(0, (this.energyData.getHeat() * 1.2));
+    this.potentialLine.draw(0, -(this.energyData.getPotentialEnergy() * 1.5));
+    this.kineticLine.draw(0, -(this.energyData.getKinematicEnergy() * 1.5));
+    this.heatLine.draw(0, (this.energyData.getHeat() * 1.5));
   }
   
   reset() : void {
